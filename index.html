@@ -12,7 +12,7 @@
 <body>
 <div id="viz"></div>
 <div class="container">
-<div class='row' id='paragraph'>
+<div class='row' id='paragraph' style="height:1500px; width:1500">
 
 </div>
 </div>
@@ -20,11 +20,12 @@
 
 <script>
 d3.csv("webmd.csv", function(error, data) {
+d3.csv("Graph_Data/connections.csv", function(error, graph) {
 
 var topics =  [];
 var answers = {};
 data.forEach(function (d) {
-		var topic = d.topicid.replace('-questions', '');
+		var topic = d.topicname;
 		if(topics.indexOf(topic) === -1)
 		{
 			topics.push(topic);
@@ -50,8 +51,24 @@ data.forEach(function (d) {
 	console.log(answers);
 	
 	var connections = [];
+	var diseases  = ['Measles', 'Feeding', 'Sodium'];
+	graph.forEach(function (d) {
+		
+		var split = d.toString().split(',');
+		var link = {};
+		link['source'] = d.Source;
+		link['target'] = d.Target;
+		link['strength'] = d.Weight;
+		if(link['strength'] === 'Weight')
+		{
+			return;
+		}
+		
+		if(/*(diseases.indexOf(d.Source) != -1 || diseases.indexOf(d.Target) != -1 ) && */parseInt(link['strength']) > 50)
+			connections.push(link);
+	});
 	
-	for(var i=1; i<100; i++)
+	/*for(var i=1; i<100; i++)
 	{
 		var w = Math.random();
 		if(w > 0.5)
@@ -63,7 +80,7 @@ data.forEach(function (d) {
 			
 			connections.push(link);
 		}
-	}
+	}*/
 		
   var visualization = d3plus.viz()
     .container("#viz")
@@ -72,13 +89,12 @@ data.forEach(function (d) {
       "size": "strength",
       "value": connections
     })
-    .focus(connections.source,
+    .focus(connections[100].source,
 	function(d) 
 	{
 		d3.select('body').selectAll("p").remove();
 		for(var question in answers[d])
 		{
-			
 			var panel = d3.select('#paragraph').append('p').append('div').attr('class', "panel panel-info");
 			panel.append('div').attr('class', "panel-heading").text(question);
 			var a = panel.append('div').attr('class', "panel-body")
@@ -93,7 +109,7 @@ data.forEach(function (d) {
 		
 	})
     .draw()
-
+});
 });
 
 </script>
