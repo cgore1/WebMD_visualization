@@ -1,26 +1,53 @@
 <!doctype html>
 <meta charset="utf-8">
 
-<script src="js/d3.min.js"></script>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/d3.min.js"></script>
 <script src="js/d3plus.js"></script>
+</head>
 
+<body>
 <div id="viz"></div>
+<div class="container">
+<div class='row' id='paragraph'>
+
+</div>
+</div>
+</body>
 
 <script>
 d3.csv("webmd.csv", function(error, data) {
 
 var topics =  [];
-
+var answers = {};
 data.forEach(function (d) {
 		var topic = d.topicid.replace('-questions', '');
 		if(topics.indexOf(topic) === -1)
 		{
 			topics.push(topic);
+			answers[topic] = [];
 		}
-		//console.log(d.topicid);
+		else
+		{
+			var t = answers[topic];
+			if(t === undefined)
+			{
+				answers[topic] = {};
+				t = answers[topic];
+			}
+			
+			if(t[d.questiontitle] === undefined)
+				t[d.questiontitle] = [];
+			
+			t[d.questiontitle].push(d.answercontent);
+		}
      });
-	 
+	
 	console.log(topics.length);
+	console.log(answers);
 	
 	var connections = [];
 	
@@ -38,15 +65,6 @@ data.forEach(function (d) {
 		}
 	}
 		
-	/*var connections = [
-    {"source": "alpha", "target": "beta", "strength": 1.25},
-    {"source": "alpha", "target": "gamma", "strength": 2.463},
-    {"source": "beta", "target": "delta", "strength": 0.823},
-    {"source": "beta", "target": "epsilon", "strength": 1.563},
-    {"source": "zeta", "target": "gamma", "strength": 3.125},
-    {"source": "theta", "target": "gamma", "strength": 0.732},
-    {"source": "eta", "target": "gamma", "strength": 2.063}
-  ]*/
   var visualization = d3plus.viz()
     .container("#viz")
     .type("rings")
@@ -54,7 +72,26 @@ data.forEach(function (d) {
       "size": "strength",
       "value": connections
     })
-    //.focus("exercise-questions")
+    .focus(connections.source,
+	function(d) 
+	{
+		d3.select('body').selectAll("p").remove();
+		for(var question in answers[d])
+		{
+			
+			var panel = d3.select('#paragraph').append('p').append('div').attr('class', "panel panel-info");
+			panel.append('div').attr('class', "panel-heading").text(question);
+			var a = panel.append('div').attr('class', "panel-body")
+			var i = 0;
+			for(var ans in answers[d][question])
+			{	
+				a.append('p').append('b').text('Answer ' + (++i) + ':');
+				a.append('p').text(answers[d][question][ans]);
+				
+			}
+		}
+		
+	})
     .draw()
 
 });
