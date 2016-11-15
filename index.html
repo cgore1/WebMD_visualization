@@ -50,6 +50,7 @@ data.forEach(function (d) {
 	console.log(topics.length);
 	console.log(answers);
 	
+	var searchableTopics = [];
 	var connections = [];
 	graph.forEach(function (d) {
 		
@@ -59,7 +60,17 @@ data.forEach(function (d) {
 		link['target'] = d.Target;
 		link['strength'] = (d.Weight / 29.0)  * 50;
 		if(parseInt(link['strength']) > 10)
+		{	
 			connections.push(link);
+			if(searchableTopics.indexOf(d.Source) == -1)
+			{
+				searchableTopics.push(d.Source);
+			}
+			if(searchableTopics.indexOf(d.Target) == -1)
+			{
+				searchableTopics.push(d.Target);
+			}
+		}
 	});
 		
   var visualization = d3plus.viz()
@@ -86,6 +97,16 @@ data.forEach(function (d) {
 			}
 		}
 		
+	})
+	.ui({
+		"position" : "top",
+		"align" : "center",
+		"value" : [	{
+			"method": "focus",
+			"type": "drop",
+			"label": "Disease",
+			"value": searchableTopics
+		}]
 	})
     .draw()
 });
