@@ -90,7 +90,7 @@ data.forEach(function (d) {
       "size": "strength",
       "value": connections
     })
-    .focus('Scrotum',
+    .focus('Drug',
 	function(d) 
 	{
 		d3.select('body').selectAll("p").remove();
@@ -107,6 +107,16 @@ data.forEach(function (d) {
 			}
 		}
 		
+	})
+	.ui({
+		"position" : "top",
+		"align" : "center",
+		"value" : [	{
+			"method": "focus",
+			"type": "drop",
+			"label": "Disease",
+			"value": topics
+		}]
 	})
     .draw()
 });
