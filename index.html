@@ -51,7 +51,7 @@ data.forEach(function (d) {
 	console.log(answers);
 	
 	var connections = [];
-	var diseases  = ['Measles', 'Feeding', 'Sodium'];
+	//var diseases  = ['Measles', 'Feeding'];
 	graph.forEach(function (d) {
 		
 		var split = d.toString().split(',');
@@ -59,12 +59,13 @@ data.forEach(function (d) {
 		link['source'] = d.Source;
 		link['target'] = d.Target;
 		link['strength'] = d.Weight;
-		if(link['strength'] === 'Weight')
+		/*if(link['strength'] === 'Weight')
 		{
 			return;
-		}
+		}*/
 		
-		if(/*(diseases.indexOf(d.Source) != -1 || diseases.indexOf(d.Target) != -1 ) && */parseInt(link['strength']) > 50)
+		//if((diseases.indexOf(d.Source) != -1 || diseases.indexOf(d.Target) != -1 ) && parseInt(link['strength']) > 5)
+		if(parseInt(link['strength']) > 6)
 			connections.push(link);
 	});
 	
@@ -89,7 +90,7 @@ data.forEach(function (d) {
       "size": "strength",
       "value": connections
     })
-    .focus(connections[100].source,
+    .focus('Scrotum',
 	function(d) 
 	{
 		d3.select('body').selectAll("p").remove();
@@ -103,7 +104,6 @@ data.forEach(function (d) {
 			{	
 				a.append('p').append('b').text('Answer ' + (++i) + ':');
 				a.append('p').text(answers[d][question][ans]);
-				
 			}
 		}
 		
