@@ -51,37 +51,16 @@ data.forEach(function (d) {
 	console.log(answers);
 	
 	var connections = [];
-	//var diseases  = ['Measles', 'Feeding'];
 	graph.forEach(function (d) {
 		
 		var split = d.toString().split(',');
 		var link = {};
 		link['source'] = d.Source;
 		link['target'] = d.Target;
-		link['strength'] = d.Weight;
-		/*if(link['strength'] === 'Weight')
-		{
-			return;
-		}*/
-		
-		//if((diseases.indexOf(d.Source) != -1 || diseases.indexOf(d.Target) != -1 ) && parseInt(link['strength']) > 5)
-		if(parseInt(link['strength']) > 6)
+		link['strength'] = (d.Weight / 29.0)  * 50;
+		if(parseInt(link['strength']) > 10)
 			connections.push(link);
 	});
-	
-	/*for(var i=1; i<100; i++)
-	{
-		var w = Math.random();
-		if(w > 0.5)
-		{
-			var link = {};
-			link['source'] = topics[i % 11];
-			link['target'] = topics[100 + i];
-			link['strength'] = w;
-			
-			connections.push(link);
-		}
-	}*/
 		
   var visualization = d3plus.viz()
     .container("#viz")
@@ -90,7 +69,7 @@ data.forEach(function (d) {
       "size": "strength",
       "value": connections
     })
-    .focus('Scrotum',
+    .focus('Breast',
 	function(d) 
 	{
 		d3.select('body').selectAll("p").remove();
