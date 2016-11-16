@@ -57,37 +57,23 @@ data.forEach(function (d) {
 	console.log(answers);
 	
 	var connections = [];
-	//var diseases  = ['Measles', 'Feeding'];
+	var filterTopics = [];
 	graph.forEach(function (d) {
 		
 		var split = d.toString().split(',');
 		var link = {};
 		link['source'] = d.Source;
 		link['target'] = d.Target;
-		link['strength'] = d.Weight;
-		/*if(link['strength'] === 'Weight')
-		{
-			return;
-		}*/
-		
-		//if((diseases.indexOf(d.Source) != -1 || diseases.indexOf(d.Target) != -1 ) && parseInt(link['strength']) > 5)
-		if(parseInt(link['strength']) > 6)
+		link['strength'] = (d.Weight / 30.0) * 50;
+		if(parseInt(link['strength']) > 10)
+		{	
 			connections.push(link);
-	});
-	
-	/*for(var i=1; i<100; i++)
-	{
-		var w = Math.random();
-		if(w > 0.5)
-		{
-			var link = {};
-			link['source'] = topics[i % 11];
-			link['target'] = topics[100 + i];
-			link['strength'] = w;
-			
-			connections.push(link);
+			if(filterTopics.indexOf(d.Source) == -1)
+				filterTopics.push(d.Source);
+			if(filterTopics.indexOf(d.Target) == -1)
+				filterTopics.push(d.Target);
 		}
-	}*/
+	});
 		
   var visualization = d3plus.viz()
     .container("#viz")
@@ -102,7 +88,7 @@ data.forEach(function (d) {
 				d3.select('body').selectAll("p").remove();
 				d3.selectAll(".panel-heading").remove();
 				d3.selectAll(".panel-body").remove();
-				var panel = d3.select('#paragraph');//.append('p').append('div').attr('class', "panel panel-info");
+				var panel = d3.select('#paragraph');
 				
 				for(var question in answers[d])
 				{
@@ -127,7 +113,7 @@ data.forEach(function (d) {
 			"method": "focus",
 			"type": "drop",
 			"label": "Disease",
-			"value": topics
+			"value": filterTopics
 		}]
 	})
     .draw()
