@@ -1,0 +1,131 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="js/d3.min.js"></script>
+	<script src="js/d3plus.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+    $( function() {
+					$( "#paragraph" ).accordion({
+					  collapsible: true,
+					  heightStyle: "content"
+					});
+				}); 
+  </script>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+    <div class="navbar-header" style="width: 100%; text-align: center; padding: 15px">
+      <a class="navbar-brand" style="float: none; font-size: 20px">WebMD Visual Analytics</a>
+    </div>
+</div>
+</nav>
+
+<div id="viz" style="width: 90%"></div>
+<div id="paragraph" class="container panel panel-info">
+</div>
+</body>
+
+<script>
+d3.csv("webmd.csv", function(error, data) {
+d3.csv("Graph_Data/connections.csv", function(error, graph) {
+
+var topics =  [];
+var answers = {};
+data.forEach(function (d) {
+		var topic = d.topicname;
+		if(topics.indexOf(topic) === -1)
+		{
+			topics.push(topic);
+			answers[topic] = [];
+		}
+		else
+		{
+			var t = answers[topic];
+			if(t === undefined)
+			{
+				answers[topic] = {};
+				t = answers[topic];
+			}
+			
+			if(t[d.questiontitle] === undefined)
+				t[d.questiontitle] = [];
+			
+			t[d.questiontitle].push(d.answercontent);
+		}
+     });
+	
+	console.log(topics.length);
+	console.log(answers);
+	
+	var connections = [];
+	var filterTopics = [];
+	graph.forEach(function (d) {
+		
+		var split = d.toString().split(',');
+		var link = {};
+		link['source'] = d.Source;
+		link['target'] = d.Target;
+		link['strength'] = (d.Weight / 30.0) * 50;
+		if(parseInt(link['strength']) > 10)
+		{	
+			connections.push(link);
+			if(filterTopics.indexOf(d.Source) == -1)
+				filterTopics.push(d.Source);
+			if(filterTopics.indexOf(d.Target) == -1)
+				filterTopics.push(d.Target);
+		}
+	});
+		
+  var visualization = d3plus.viz()
+    .container("#viz")
+    .type("rings")
+    .edges({
+      "size": "strength",
+      "value": connections
+    })
+    .focus('Drug',
+			function(d) {
+				
+				d3.select('body').selectAll("p").remove();
+				d3.selectAll(".panel-heading").remove();
+				d3.selectAll(".panel-body").remove();
+				var panel = d3.select('#paragraph');
+				
+				for(var question in answers[d])
+				{
+					panel.append('h3').attr('class', "panel-heading").text(question);
+					var a = panel.append('div').attr('class', "panel-body")
+					var i = 0;
+					for(var ans in answers[d][question])
+					{	
+						a.append('p').append('b').text('Answer ' + (++i) + ':');
+						a.append('p').text(answers[d][question][ans]);
+					}
+				}
+				
+				$("#paragraph").accordion('refresh');		
+				
+			}
+	)
+	.ui({
+		"position" : "top",
+		"align" : "center",
+		"value" : [	{
+			"method": "focus",
+			"type": "drop",
+			"label": "Disease",
+			"value": filterTopics
+		}]
+	})
+    .draw()
+});
+});
+
+</script>
