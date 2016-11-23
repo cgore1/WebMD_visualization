@@ -1,0 +1,791 @@
+topicname,totalQuestions,unansweredQuestions
+AIDS,8,0
+ANA Test,1,0
+Abdominal Obesity,7,1
+Abdominal Pain,2,0
+Ablation,2,0
+Acetaminophen,37,0
+Acne,26,1
+Actinic Keratosis,2,1
+Acupuncture,2,0
+Addiction,1,0
+Adrenal Gland,3,0
+Adult Acne,2,0
+Affordable Care Act,1,0
+Aging,13,0
+Alcohol Abuse,2,0
+Alcoholic Beverage,1,0
+Alcoholism,20,0
+Allergic Conjunctivitis,1,0
+Allergic Reaction,7,0
+Allergy,35,0
+Almond,1,0
+Aloe,3,0
+Alopecia,1,0
+Alzheimer's Disease,7,0
+Amino Acids,2,0
+Ammonia,1,0
+Amoxicillin,13,0
+Amyotrophic Lateral Sclerosis,2,0
+Anaphylaxis,5,0
+Anemia,1,0
+Anesthesia,1,0
+Anger,1,0
+Angina,4,0
+Ankle,12,0
+Anterior Cruciate Ligament Injury,1,0
+Anti-Aging,4,0
+Antibiotic,33,2
+Antidepressant,13,0
+Anus,4,0
+Anxiety,22,0
+Apnea,1,0
+Arm,12,0
+Arrhythmia,10,0
+Arthritis,8,0
+Aspirin,12,0
+Asthma,18,1
+Asthma Attack,2,0
+Atherosclerosis,2,0
+Athlete's Foot,2,0
+Atopic Dermatitis,4,0
+Attention Deficit Hyperactivity Disorder,20,0
+Autism,4,0
+Autoimmune Hepatitis,2,0
+B Complex Vitamins,7,0
+B12,3,0
+Baby,83,0
+Baby Bottle Tooth Decay,1,0
+Back Pain,11,0
+Bacterial Vaginosis,8,0
+Bacterium,6,0
+Bad Breath,4,0
+Balanitis,3,0
+Bedbug,9,0
+Bee Sting,1,0
+Belch,2,0
+Belly Button,2,0
+Benign Prostatic Hyperplasia,1,0
+Benzoyl Peroxide,3,0
+Beta Blocker,2,0
+Big Toe,1,0
+Bioidentical Hormone,3,0
+Biopsy,2,0
+Bipolar Disorder,17,0
+Birth,2,0
+Birth Control,10,0
+Birth Control Pill,13,0
+Birth Defect,1,0
+Birthmark,1,0
+Bladder,5,0
+Blister,9,0
+Bloating,4,0
+Blood Clot,5,0
+Blood Pressure,7,0
+Blood Sugar,16,2
+Blood Test,1,0
+Body Mass Index,2,0
+Boil,3,0
+Bone Spurs,10,0
+Borderline Personality Disorder,3,2
+Bowel Movement,6,0
+Brain,9,0
+Brain Tumor,2,0
+Breast,13,0
+Breast Cancer,14,0
+Breast Self Exam,1,0
+Breastfeed,16,0
+Broken Toe,2,0
+Bronchitis,9,0
+Bruise,2,0
+Burn,12,0
+Bursitis,3,0
+Buttocks,6,0
+Caffeine,11,0
+Calcium,9,0
+Calf,3,0
+Callus,1,0
+Calorie,2,0
+Cancer,19,0
+Canker Sore,5,0
+Carbohydrate,5,0
+Carbon Dioxide,1,0
+Cardiovascular Disease,1,0
+Cardioversion,1,0
+Carotid Artery,2,1
+Carpal Tunnel Syndrome,2,0
+Castor Oil,1,0
+Cat Scratch Disease,2,0
+Catheter,2,0
+Cats,5,0
+Cavity,4,0
+Celiac Disease,4,0
+Cellulite,6,0
+Cephalexin,4,0
+Cereal,3,0
+Cervical Conization,2,0
+Cervix,2,0
+Cesarean Section,2,0
+Charcot-Marie-Tooth Disease,2,0
+Chemotherapy,5,0
+Cherry Angioma,1,0
+Chest,15,0
+Chiari Malformation,1,0
+Chickenpox,1,0
+Chigger,4,0
+Childhood Obesity,1,0
+Chlamydia,6,0
+Choking,2,0
+Cholesterol,24,2
+Chondromalacia Patella,2,0
+Chronic Obstructive Pulmonary Disease,6,0
+Circumcision,5,0
+Cirrhosis,4,0
+Cocaine,4,0
+Cocoa,1,0
+Coconut Oil,2,0
+Coffee,7,0
+Cold,26,0
+Cold Sore,6,0
+Coldness,59,0
+Colic,3,0
+Colitis,2,0
+Collagen,2,0
+Colon,1,0
+Colon Cancer,12,0
+Colonoscopy,3,0
+Complex Regional Pain Syndrome,4,0
+Concussion,1,0
+Condom,2,0
+Congestive Heart Failure,6,0
+Constipation,5,0
+Contact Dermatitis,1,0
+Cooking,8,0
+Cortisone,1,0
+Cosmetic Procedures,3,0
+Cosmetic Surgery,8,0
+Cough,14,0
+Cramps,14,0
+Cranberry,1,0
+Craving,1,0
+Creatinine,2,0
+Crohn's Disease,5,0
+Croup,2,0
+Crying,5,0
+Cuts,11,0
+Cyst,8,0
+Cystic Acne,1,0
+Dairy,2,0
+Dark Chocolate,1,0
+Deep Vein Thrombosis,2,0
+Dehydration,2,0
+Dementia,12,0
+Dental,43,0
+Dental Injury,1,0
+Depression,33,0
+Dessert,1,0
+Detached Retina,3,0
+Diabetes,48,0
+Diabetic Neuropathy,1,0
+Diaper Rash,2,0
+Diarrhea,23,0
+Diet,50,1
+Diet Pills,6,0
+Digestive System,1,0
+Dislocation,2,0
+Diverticulitis,9,0
+Dizziness,7,0
+Dog,6,0
+Domestic Violence,2,0
+Dopamine,1,0
+Drainage,6,0
+Drinking,26,0
+Drowsiness,4,0
+Drug,266,3
+Drug Abuse,12,0
+Drug Overdose,2,0
+Drug Test,3,0
+Dry Mouth,4,0
+Dry Skin,4,0
+Dry Socket,3,0
+Ear Drum,1,0
+Ear Infection,9,0
+Ears,15,0
+Echocardiogram,5,0
+Ectopic Pregnancy,1,0
+Edema,5,0
+Ehlers-Danlos Syndrome,1,0
+Ejaculation,5,0
+Elbow,1,0
+Electrocardiogram,1,0
+Electrogastrogram,4,0
+Emergency Room,5,0
+Endometrial Cancer,2,0
+Endometriosis,1,0
+Epilepsy,5,0
+Epinephrine,1,0
+Epistaxis,2,0
+Erectile Dysfunction,14,0
+Erection,22,0
+Esophagus,3,0
+Estrogen,4,0
+Eustachian Tube Dysfunction,2,0
+Exercise,48,0
+Exercise Stress Test,1,0
+Exposure,1,0
+Eyebrow,1,0
+Eyelid,3,0
+Eyes,23,0
+Facial Nerve,2,0
+Family,15,1
+Fast Food,2,0
+Fatigue,6,0
+Fatty Liver Disease,7,0
+Fear,5,0
+Feeding,11,0
+Femur,1,0
+Fertility,7,0
+Fetal Alcohol Syndrome,2,0
+Fetus,1,0
+Fever,16,0
+Fiber,3,0
+Fibromyalgia,35,0
+Finger,3,0
+First Aid,4,0
+First Trimester,6,0
+Fish,6,0
+Fitness,1,0
+Flatulence,8,0
+Flu,41,0
+Fluoride,2,0
+Food,48,0
+Food Allergy,6,0
+Food Poisoning,5,0
+Foot,16,0
+Forearm,4,0
+Forehead,1,0
+Foreskin,1,0
+Fracture,9,0
+Freckle,1,0
+Fruit,5,0
+Fuzziness,1,0
+Gallbladder,3,0
+Gallstone,4,0
+Ganglion Cyst,1,0
+Gastric Bypass Surgery,1,0
+Gastroenteritis,4,0
+General Anesthesia,1,0
+Genetic Disorder,1,0
+Genetic Testing,1,0
+Genital Herpes,27,0
+Ginger,2,0
+Gingivitis,2,0
+Ginkgo Biloba,1,0
+Ginseng,1,0
+Glaucoma,4,0
+Gonorrhea,2,1
+Gout,3,0
+Grapefruit,1,0
+Grayness,2,0
+Gum Disease,1,0
+H. Pylori,2,0
+HIV,13,1
+HIV Test,1,0
+Hair,21,0
+Hair Loss,19,2
+Hallucination,2,0
+Hamburger,2,0
+Hand,16,0
+Head,9,0
+Head Lice,4,0
+Headache,29,0
+Healing,5,0
+Health insurance,1,0
+Healthy Eating,2,0
+Heart,15,0
+Heart Attack,7,0
+Heart Disease,7,0
+Heart Murmur,2,0
+Heart Surgery,3,0
+Heartburn,27,1
+Heel,3,0
+Height,1,0
+Hemorrhoid,11,2
+Hepatitis,4,0
+Hepatitis A,1,0
+Hepatitis B,5,0
+Hepatitis C,8,1
+Herb,6,1
+Hernia,8,0
+Herniated Disc,2,0
+Herniated Disk,2,0
+Herpes,3,0
+Herpes Simplex,4,0
+Hiatal Hernia,2,0
+High Blood Pressure,17,0
+High Cholesterol,3,0
+High Fructose Corn Syrup,1,0
+High-Risk Pregnancy,1,0
+Hip Pain,2,0
+Hives,7,1
+Hoarseness,1,0
+Honey,2,0
+Hormone,3,0
+Hormone Replacement Therapy,5,0
+Hot Flash,5,0
+Human Papillomavirus,4,0
+Hunger,1,0
+Hydrocodone,6,0
+Hydrocortisone,2,0
+Hydrogen Peroxide,2,0
+Hyperglycemia,2,0
+Hyperhidrosis,2,0
+Hyperkalemia,2,0
+Hyperpigmentation,2,0
+Hyperthyroidism,2,0
+Hypertrophic Cardiomyopathy,1,0
+Hypothermia,1,0
+Hypothyroidism,4,0
+Hysterectomy,7,0
+Ibuprofen,39,1
+Ice Cream,1,0
+Ichthyosis,1,0
+Immune System,1,0
+Immunotherapy,1,0
+Impetigo,3,0
+Implant Radiation,1,0
+Impotence,2,0
+Incontinence,5,1
+Indigestion,1,0
+Infant,7,0
+Infection,23,0
+Infertility,7,0
+Inhaler,3,0
+Injection,44,0
+Injury,27,0
+Insect Bite,2,0
+Insect Sting,1,0
+Insomnia,9,0
+Insulin,1,0
+Insurance,25,0
+Intestine,1,0
+Intrauterine Device,2,0
+Intrauterine Insemination,1,0
+Iodine,1,0
+Iron,5,1
+Irregularity,1,0
+Irritability,1,0
+Irritable Bowel Syndrome,7,0
+Itch,29,0
+Jaw,2,0
+Jelly,1,0
+Jet Lag,1,0
+Juice,1,0
+Kale,1,0
+Keloid,2,0
+Keratosis Pilaris,2,0
+Kidney,8,0
+Kidney Cancer,8,0
+Kidney Disease,4,0
+Kidney Failure,2,0
+Kidney Stone,11,0
+Knee,11,0
+Knee Pain,1,0
+Lactase,1,0
+Lactose,1,0
+Leg,21,0
+Legg-Calve-Perthes Disease,1,0
+Libido,1,0
+Lice,3,0
+Lice Infestation,2,0
+Ligament,1,0
+Lightheadedness,1,0
+Lip,7,0
+Liposuction,4,0
+Lithium,3,0
+Little Finger,1,0
+Liver,21,0
+Long-Term Effect,1,0
+Lotion,3,0
+Low Blood Pressure,4,0
+Low Carb Diet,2,0
+Low Self-Esteem,1,0
+Lubricants,1,0
+Lump,6,0
+Lung,2,0
+Lupus,11,0
+Lyme Disease,2,0
+Lymph Node,9,0
+Lymphedema,8,0
+Macadamia,1,0
+Magnesium,2,0
+Magnetic Resonance Imaging,4,0
+Makeup,7,0
+Mammogram,6,0
+Manic Depressive,1,0
+Marijuana,10,0
+Masturbation,2,0
+Mayonnaise,1,0
+Meal,4,0
+Measles,2,0
+Meat,3,0
+Medicaid,1,0
+Medicare,5,0
+Melanoma,1,0
+Melasma,1,0
+Melatonin,3,0
+Memory Loss,2,0
+Meningitis,4,0
+Menopause,15,1
+Menstrual,3,0
+Menstrual Cramp,2,0
+Mental Health,1,0
+Metabolism,1,0
+Methadone,14,0
+Middle Ear,1,0
+Migraine,15,0
+Milk,5,0
+Mite,1,0
+Mitochondrial Myopathy,2,0
+Molar,2,0
+Mold,3,0
+Mole,6,0
+Mononucleosis,3,0
+Mood Swing,1,0
+Morning After Pill,1,0
+Morning Sickness,1,0
+Morphine,2,0
+Motion Sickness,1,0
+Mouth,21,0
+Mouth Ulcers,1,0
+Movement,6,0
+Mucus,1,0
+Multiple Sclerosis,17,0
+Multivitamin,16,0
+Mumps,8,0
+Muscle,32,0
+Myasthenia Gravis,2,0
+NAFLD,5,0
+NASH,5,0
+Nail,1,0
+Nail Fungus,1,0
+Naproxen,5,0
+Narcolepsy,2,0
+Narcotic,2,0
+Nasal Spray,1,0
+Nausea,13,0
+Nebulization,1,0
+Neck,23,0
+Nerve,2,0
+Neuropathy,1,0
+Newborn,2,0
+Nicotine,1,0
+Night Terror,1,0
+Nightmare,3,0
+Nose,9,0
+Nostril,1,0
+Nsaid,2,0
+Numbness,1,0
+Nutrition,4,0
+Oatmeal,6,0
+Obesity,10,1
+Obstructive Sleep Apnea,3,0
+Oil,8,0
+Olive,1,0
+Omega-3,1,0
+Oral Cancer,1,0
+Organ,6,0
+Orgasm,1,0
+Osteoarthritis,5,0
+Osteoporosis,6,0
+Ovarian Cancer,7,0
+Ovary,12,0
+Over The Counter,72,1
+Overactive Bladder,4,0
+Ovulation,3,0
+Oxycodone,6,0
+Pacemaker,1,0
+Pain,113,0
+Pain Relief,1,0
+Painful Urination,1,0
+Pancreas,1,0
+Pancreatic Cancer,7,0
+Pancreatitis,2,0
+Panic Attack,9,0
+Pap Test,6,0
+Paranoid Behavior,1,0
+Paraphimosis,3,0
+Parenting,1,0
+Parkinson's Disease,17,0
+Peanut,2,0
+Peanut Butter,1,0
+Pedialyte,2,0
+Pelvic Area,1,0
+Pelvis,6,0
+Penicillin,5,0
+Penile Cancer,4,0
+Penis,14,0
+Peptic Ulcer,2,0
+Perimenopause,5,0
+Period,38,0
+Periodontitis,1,0
+Peripheral Artery Disease,2,0
+Pets,3,0
+Physical Therapy,1,0
+Piercing,1,0
+Pilates,1,0
+Pilonidal Cyst,4,0
+Pinched Nerve,4,0
+Pink Eye,1,0
+Plant,1,0
+Plantar Fasciitis,5,0
+Plantar Wart,1,0
+Plastic Surgery,4,0
+Pleurisy,5,0
+Pneumonia,8,0
+Poison Ivy,10,0
+Poison Oak,1,0
+Poisoning,5,0
+Polycystic Ovarian Syndrome,5,0
+Polyp,2,0
+Pore,1,0
+Pork,1,0
+Post-Menopause,1,0
+Post-Traumatic Stress Disorder,2,0
+Postpartum Depression,1,0
+Potassium,6,0
+Potato,1,0
+Pregnancy,162,3
+Pregnancy Test,8,0
+Premature Ejaculation,4,0
+Premature Menopause,1,0
+Prenatal Vitamin,6,0
+Pressure,2,0
+Priapism,4,0
+Prostate,10,0
+Prostate Cancer,21,0
+Prostate-Specific Antigen Test,7,0
+Protein,1,0
+Protein S Deficiency,2,0
+Proton Pump Inhibitor,5,0
+Psoriasis,34,3
+Puffiness,2,0
+Pulmonary Embolism,2,0
+Pulse,4,0
+Pupil,1,0
+Quit Smoking,8,0
+Radial Keratotomy,1,0
+Radical Prostatectomy,1,0
+Radiculopathy,2,0
+Rash,14,0
+Raspberry,2,1
+Reaction,9,0
+Red Wine,1,0
+Rehabilitation,3,0
+Restless Leg Syndrome,2,0
+Restless Legs Syndrome,3,0
+Restlessness,1,1
+Retina,1,0
+Retrograde Ejaculation,3,0
+Rheumatoid Arthritis,12,0
+Rhinoplasty,5,0
+Rice,2,0
+Ringworm,3,0
+Rosacea,3,0
+Running,13,1
+Runny Nose,2,0
+SIDS,2,0
+Salad,4,0
+Salmon,1,0
+Salt,5,0
+Scabies,5,0
+Scalp,6,0
+Scar,9,0
+Schizophrenia,1,0
+Sciatica,7,1
+Scleroderma,6,0
+Scoliosis,2,0
+Scrape,2,0
+Screening,8,0
+Scrotum,2,0
+Sea Sickness,1,0
+Seborrhea,1,0
+Second Degree Burn,1,0
+Seizure,16,0
+Self-Exam,1,0
+Sepsis,3,0
+Serotonin,1,0
+Sexual Dysfunction,2,0
+Sexual Intercourse,54,0
+Sexual Problem,7,0
+Sexually Transmitted Disease,2,0
+Shaving,3,0
+Shellfish,4,0
+Shift Work Sleep Disorder,2,0
+Shingles,11,0
+Short Stature,2,0
+Shoulder,3,0
+Sinus,11,0
+Sinus Infection,8,0
+Skin,128,0
+Skin Cancer,2,0
+Skin Tag,1,0
+Sleep Apnea,7,0
+Sleep Disorder,3,0
+Sleepiness,1,0
+Sleepwalking,1,0
+Smell,2,0
+Smoking,8,0
+Snack,1,0
+Snorer,4,0
+Soda,8,0
+Sodium,1,0
+Sore,2,0
+Sore Throat,8,0
+Soup,2,0
+Soy,1,0
+Spasm,4,0
+Sperm,13,1
+Spider Bite,6,0
+Spider Vein,2,0
+Spina Bifida,1,0
+Spinach,1,0
+Spinal Stenosis,3,0
+Spit,4,0
+Spondylitis,2,0
+Spotting,3,0
+Sprain,5,0
+Squash,2,0
+St. John's Wort,1,0
+Staph Infection,3,0
+Stent,4,0
+Steroid,10,0
+Sting,7,0
+Stitches,1,0
+Stomach,30,0
+Stomach Cancer,1,0
+Stomachache,2,0
+Strep Throat,5,0
+Stress,22,0
+Stress Fracture,1,0
+Stress Incontinence,1,0
+Stretch Mark,1,0
+Stroke,5,0
+Stuffy Nose,3,0
+Sty,1,0
+Suicide,4,0
+Sulfur,1,0
+Sunburn,1,0
+Sunscreen,15,0
+Supplement,14,1
+Surgery,39,0
+Swallow,4,0
+Swallowing Problem,2,0
+Sweating,4,0
+Sweet Potato,1,0
+Swelling,30,0
+Swine Flu,18,0
+Syrup,4,0
+Systemic,1,0
+Tai Chi,1,0
+Taste,6,0
+Tattoo,8,0
+Tea,1,0
+Teething,7,0
+Temperature,4,0
+Tendon,1,0
+Tendonitis,1,0
+Tension Headache,2,0
+Testicle,2,0
+Testicular Cancer,4,0
+Testosterone,3,0
+Tetanus,1,0
+Thermometer,1,0
+Thigh,4,0
+Third Trimester,1,0
+Throat,4,0
+Thrush,9,0
+Thumb,1,0
+Thyroid,9,0
+Thyroiditis,2,0
+Tick,1,0
+Tightness,1,0
+Tinnitus,2,0
+Toddler,19,0
+Toe,1,0
+Tofu,1,0
+Tomato,1,0
+Tongue,16,0
+Tonsil,3,0
+Tooth,87,0
+Tooth Decay,5,0
+Toothache,5,0
+Torso,1,0
+Torticollis,2,0
+Transfusion,2,0
+Transient Ischemia Attack,1,0
+Trauma,1,0
+Travel,7,0
+Traveler's Diarrhea,12,0
+Tremor,1,0
+Tryptophan,1,0
+Tuberculosis,3,0
+Turkey,2,0
+Type 1 Diabetes,2,0
+Type 2 Diabetes,4,0
+Ulcer,4,0
+Ulcerative Colitis,3,0
+Ultrasound,1,0
+Urethra,1,0
+Uric Acid,1,0
+Urinary Incontinence,4,0
+Urinary Tract Infection,8,0
+Urination,9,0
+Uterus,2,1
+Vaccination,5,0
+Vaccines,11,0
+Vagina,22,1
+Vaginal Discharge,1,0
+Varicose Vein,4,0
+Vascular Dementia,2,0
+Vasectomy,2,0
+Vegetable,2,0
+Vein,3,0
+Vinegar,7,1
+Virus,6,0
+Vision,40,0
+Vitamin,20,0
+Vitamin A,3,0
+Vitamin C,1,0
+Vitamin D,22,1
+Vitamin K,1,0
+Vitiligo,28,2
+Vocal Cord,1,0
+Vomit,10,0
+Waist,1,0
+Walking,5,0
+Walnut,1,0
+Wart,6,0
+Weakness,3,0
+Weight,28,0
+Weight Gain,10,0
+Weight Loss,26,0
+Weight Loss Pill,3,0
+Wheat,1,0
+Whooping Cough,13,1
+Wine,4,0
+Wisdom Tooth,3,0
+Workout,3,0
+Worm,1,0
+Wound,4,0
+Wrinkle,16,0
+Wrist,4,0
+X-ray,4,0
+Yeast,2,0
+Yeast Infection,8,1
+Yoga,3,0
+Yogurt,3,0
+Zinc,1,0
+Zinc Oxide,1,0
+flaxseed oil,1,0
+methicillin resistant staphylococcus aureus,11,0
