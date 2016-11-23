@@ -181,11 +181,11 @@
 			Some random information about this topic maybe?
 		    </div>
                     <div class="sidebar-widget">
-                      <h4>Unanswered Questions</h4>
+                      <h4>% Answered Questions</h4>
                       <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
                       <div class="goal-wrapper">
                         <span id="gauge-text" class="gauge-value pull-left">0</span>
-                        <span id="goal-text" class="goal-value pull-right">50</span>
+                        <span id="goal-text" class="goal-value pull-right">100</span>
                       </div>
                     </div>
                   </div>
@@ -984,7 +984,8 @@
 
     <!-- gauge.js -->
     <script>
-      var opts = {
+	var topic_question_stats = [];
+	var opts = {
           lines: 12,
           angle: 0,
           lineWidth: 0.4,
@@ -999,124 +1000,140 @@
           strokeColor: '#F0F3F3',
           generateGradient: true
       };
-      var target = document.getElementById('foo'),
+	var target = document.getElementById('foo'),
           gauge = new Gauge(target).setOptions(opts);
+	gauge.maxValue = 100;
+	      gauge.animationSpeed = 32;
+      var default_topic = 'Drug';
 
-      gauge.maxValue = 50;
-      gauge.animationSpeed = 32;
-      gauge.set(40);
-      gauge.setTextField(document.getElementById("gauge-text"));
+      d3.csv("data/answered_total_questions.csv", function(error, data) {
+		data.forEach(function (d) {
+			topic_question_stats.push(d.topic);
+			topic_question_stats[d.topic] = {};
+			topic_question_stats[d.topic]['total'] = +d.total;
+			topic_question_stats[d.topic]['answered'] = +d.answered;
+		});
+		
+	      
+	      gauge.set(topic_question_stats[default_topic]['answered']);
+	      gauge.setTextField(document.getElementById("gauge-text"));
+	});
+
+	
     </script>
     <!-- /gauge.js -->
 
     <!-- Topic Graph -->
 	 <script>
 		d3.csv("data/webmd.csv", function(error, data) {
-		d3.csv("data/connections.csv", function(error, graph) {
+			d3.csv("data/connections.csv", function(error, graph) {
 
-		var topics =  [];
-		var answers = {};
-		data.forEach(function (d) {
-			var topic = d.topicname;
-			if(topics.indexOf(topic) === -1)
-			{
-				topics.push(topic);
-				answers[topic] = [];
-			}
-			else
-			{
-				var t = answers[topic];
-				if(t === undefined)
-				{
-					answers[topic] = {};
-					t = answers[topic];
-				}
-			
-				if(t[d.questiontitle] === undefined)
-					t[d.questiontitle] = [];
-			
-				t[d.questiontitle].push(d.answercontent);
-			}
-	     });
-		
-		
-			var connections = [];
-			var filterTopics = [];
-			graph.forEach(function (d) {
-			
-				var split = d.toString().split(',');
-				var link = {};
-				link['source'] = d.Source;
-				link['target'] = d.Target;
-				link['strength'] = (d.Weight / 30.0) * 50;
-				if(parseInt(link['strength']) > 10)
-				{	
-					connections.push(link);
-					if(filterTopics.indexOf(d.Source) == -1)
-						filterTopics.push(d.Source);
-					if(filterTopics.indexOf(d.Target) == -1)
-						filterTopics.push(d.Target);
-				}
-			});
-			
-		  var visualization = d3plus.viz()
-		    .container("#viz")
-		    .type("rings")
-		    .edges({
-		      "size": "strength",
-		      "value": connections
-		    })
-		    .focus('Drug',
-				function(d) {
-				
-					var panel = d3.select('#questions');
-					panel.html("");
-					var q = "";
-					var question_count = 0;
-					for(var question in answers[d])
+				var topics =  [];
+				var answers = {};
+				data.forEach(function (d) {
+					var topic = d.topicname;
+					if(topics.indexOf(topic) === -1)
 					{
-						var node = panel.append("li")
-							.append("div")
-							  .attr("class", "block")
-							.append("div")
-							  .attr("class", "block_content")
-						q = "<h2 class='title'> <a>"+question+"</a> </h2>";
-
-						node.append("h2")
-							.attr("class", "title")
-						    .append("a")
-							.html(question)
-
-						var i = 0;
-						for(var ans in answers[d][question]) {
-							node.append("p")
-								.attr("class", "excerpt")
-							    .html('<b>Answer '+(++i)+'</b>: '+answers[d][question][ans])
+						topics.push(topic);
+						answers[topic] = [];
+					}
+					else
+					{
+						var t = answers[topic];
+						if(t === undefined)
+						{
+							answers[topic] = {};
+							t = answers[topic];
 						}
+			
+						if(t[d.questiontitle] === undefined)
+							t[d.questiontitle] = [];
+			
+						t[d.questiontitle].push(d.answercontent);
+					}
+			     });
+		
+		
+				var connections = [];
+				var filterTopics = [];
+				graph.forEach(function (d) {
+			
+					var split = d.toString().split(',');
+					var link = {};
+					link['source'] = d.Source;
+					link['target'] = d.Target;
+					link['strength'] = (d.Weight / 30.0) * 50;
+					if(parseInt(link['strength']) > 10)
+					{	
+						connections.push(link);
+						if(filterTopics.indexOf(d.Source) == -1)
+							filterTopics.push(d.Source);
+						if(filterTopics.indexOf(d.Target) == -1)
+							filterTopics.push(d.Target);
+					}
+				});
+			
+			  var visualization = d3plus.viz()
+			    .container("#viz")
+			    .type("rings")
+			    .edges({
+			      "size": "strength",
+			      "value": connections
+			    })
+			    .focus('Drug',
+					function(d) {
+				
+						var panel = d3.select('#questions');
+						panel.html("");
+						var q = "";
+						var question_count = 0;
+						for(var question in answers[d])
+						{
+							var node = panel.append("li")
+								.append("div")
+								  .attr("class", "block")
+								.append("div")
+								  .attr("class", "block_content")
+							q = "<h2 class='title'> <a>"+question+"</a> </h2>";
 
-						if((++question_count) == 5) break;
-					}		
+							node.append("h2")
+								.attr("class", "title")
+							    .append("a")
+								.html(question)
+
+							var i = 0;
+							for(var ans in answers[d][question]) {
+								node.append("p")
+									.attr("class", "excerpt")
+								    .html('<b>Answer '+(++i)+'</b>: '+answers[d][question][ans])
+							}
+
+							if((++question_count) == 5) break;
+						}		
 					
-				}
+						gauge.set(topic_question_stats[d]['answered']);
+					      gauge.setTextField(document.getElementById("gauge-text"));
+						gauge.render()
+					}
 
 
-		)
-		.ui({
-			"position" : "top",
-			"align" : "center",
-			"value" : [	{
-				"method": "focus",
-				"type": "drop",
-				"label": "Disease",
-				"value": filterTopics
-			}]
-		})
-	    .height(860)
-	    .width({
-		"small" : 800
-	    })
-	    .draw()
-	});
+			)
+			.ui({
+				"position" : "top",
+				"align" : "center",
+				"value" : [	{
+					"method": "focus",
+					"type": "drop",
+					"label": "Disease",
+					"value": filterTopics
+				}]
+			})
+		    .height(860)
+		    .width({
+			"small" : 800
+		    })
+		    .draw()
+		});
 	});
 
 	</script>
