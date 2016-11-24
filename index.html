@@ -27,9 +27,12 @@
     <script src="js/d3.min.js"></script>
     <!-- D3plus.js -->
      <script src="js/d3plus.js"></script>
+     <script src="timeline.js"></script>
+     <script src="data/monthData.js"></script>
 
     <!-- Custom Theme Style -->
     <link href="css/custom.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -118,7 +121,15 @@
 		    <div id="viz">
 
 		   </div>
+
 		</div>
+
+    <div class="dashboard_graph x_panel">
+        <div id="timechart">
+
+       </div>
+       
+    </div>
             </div>
 	    <div class="col-md-3 col-sm-12 col-xs-12">
 	      <div class="x_panel tile fixed_height_320">
@@ -1070,6 +1081,12 @@
 					      gauge.setTextField(document.getElementById("gauge-text"));
 						gauge.render();
 
+            // Time line update
+            if(!d)
+              loadTimeline(default_topic);
+            else
+              loadTimeline(d);
+
 						posts.html(topic_question_stats[d]['total']);
 					}
 
@@ -1095,5 +1112,9 @@
 
 	</script>
     <!-- /Topic Graph -->
+
+  <script>
+    loadTimeline();
+  </script>>
   </body>
 </html>
