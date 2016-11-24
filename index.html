@@ -953,6 +953,35 @@
 
     <!-- gauge.js -->
     <script>
+
+	function setQuestionsForTopic(topic) {
+		var panel = d3.select('#questions');
+		panel.html("");
+		
+		var question_count = 0;
+		for(var question in answers[topic])
+		{
+			var node = panel.append("li")
+				.append("div")
+				  .attr("class", "block")
+				.append("div")
+				  .attr("class", "block_content");
+
+			node.append("h2")
+				.attr("class", "title")
+			    .append("a")
+				.html(question)
+
+			var i = 0;
+			for(var ans in answers[topic][question]) {
+				node.append("p")
+					.attr("class", "excerpt")
+				    .html('<b>Answer '+(++i)+'</b>: '+answers[topic][question][ans])
+			}
+
+			if((++question_count) == 5) break;
+		}
+	}
 //	var topic_question_stats = [];
 	var opts = {
           lines: 12,
@@ -973,7 +1002,7 @@
           gauge = new Gauge(target).setOptions(opts);
 	gauge.maxValue = 100;
 	      gauge.animationSpeed = 32;
-      var default_topic = 'Abdominal Obesity';
+      var default_topic = "Abdominal Obesity";
       var posts = d3.select("#posts");
 
 /*      d3.csv("data/answered_total_questions.csv", function(error, data) {
@@ -989,6 +1018,7 @@
 	      gauge.setTextField(document.getElementById("gauge-text"));
 //	});
 	      posts.html(topic_question_stats[default_topic]['total']);
+		  setQuestionsForTopic(default_topic);
 
 	
     </script>
@@ -1059,33 +1089,7 @@
 			    .focus(default_topic,
 					function(d) {
 				
-						var panel = d3.select('#questions');
-						panel.html("");
-						var q = "";
-						var question_count = 0;
-						for(var question in answers[d])
-						{
-							var node = panel.append("li")
-								.append("div")
-								  .attr("class", "block")
-								.append("div")
-								  .attr("class", "block_content")
-							q = "<h2 class='title'> <a>"+question+"</a> </h2>";
-
-							node.append("h2")
-								.attr("class", "title")
-							    .append("a")
-								.html(question)
-
-							var i = 0;
-							for(var ans in answers[d][question]) {
-								node.append("p")
-									.attr("class", "excerpt")
-								    .html('<b>Answer '+(++i)+'</b>: '+answers[d][question][ans])
-							}
-
-							if((++question_count) == 5) break;
-						}		
+						setQuestionsForTopic(d);		
 					
 						gauge.set(topic_question_stats[d]['answered']);
 					      gauge.setTextField(document.getElementById("gauge-text"));
