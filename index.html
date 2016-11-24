@@ -8,7 +8,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Topic Insights </title>
+        <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="js/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="js/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="js/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="js/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="js/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="js/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="js/skycons.js"></script>
+    <!-- Flot -->
+    <script src="js/jquery.flot.js"></script>
+    <script src="js/jquery.flot.pie.js"></script>
+    <script src="js/jquery.flot.time.js"></script>
+    <script src="js/jquery.flot.stack.js"></script>
+    <script src="js/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="js/jquery.flot.orderBars.js"></script>
+    <script src="js/jquery.flot.spline.min.js"></script>
+    <script src="js/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="js/date.js"></script>
+    <!-- JQVMap -->
+    <script src="js/jquery.vmap.js"></script>
+    <script src="js/jquery.vmap.world.js"></script>
+    <script src="js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="js/moment.min.js"></script>
+    <script src="js/daterangepicker.js"></script>
 
+    <!-- Custom Theme Scripts -->
+    <script src="js/custom.min.js"></script>
+
+    <!-- data -->
+    <script src="data/topic_questions.js"></script>
+    <script src="data/topics.js"></script>
+    <script src="data/filter_topics.js"></script>
+    <script src="data/connections.js"></script>
+    <Script src="data/answers.js"></script>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -29,6 +75,10 @@
      <script src="js/d3plus.js"></script>
      <script src="timeline.js"></script>
      <script src="data/monthData.js"></script>
+
+    <!-- morris.js -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
     <!-- Custom Theme Style -->
     <link href="css/custom.min.css" rel="stylesheet">
@@ -119,18 +169,12 @@
             <div class="col-md-9 col-sm-12 col-xs-12">
 		<div class="dashboard_graph x_panel">
 		    <div id="viz">
-
 		   </div>
 
 		</div>
 
-    <div class="dashboard_graph x_panel">
-        <div id="timechart">
-
-       </div>
-       
     </div>
-            </div>
+
 	    <div class="col-md-3 col-sm-12 col-xs-12">
 	      <div class="x_panel tile fixed_height_320">
                 <div class="x_title">
@@ -219,6 +263,29 @@
                       </div>
                     </div>
 	    </div>
+      <div class="row">
+      <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="dashboard_graph x_panel">
+      <div class="x_title">
+                          <h2>Monthly posts</h2>
+                          
+                          <div class="clearfix"></div>
+                        </div>
+          <div id="monthChart">
+         </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <div class="dashboard_graph x_panel">
+      <div class="x_title">
+                          <h2>Hourly posts</h2>
+                          <div class="clearfix"></div>
+                        </div>
+         <div id="hourChart">
+         </div>
+      </div>
+    </div>
+      </div>
 		<div class="col-md-3 col-sm-12 col-xs-12">
                       
           </div>
@@ -670,53 +737,7 @@
       </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="js/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="js/nprogress.js"></script>
-    <!-- Chart.js -->
-    <script src="js/Chart.min.js"></script>
-    <!-- gauge.js -->
-    <script src="js/gauge.min.js"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="js/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="js/icheck.min.js"></script>
-    <!-- Skycons -->
-    <script src="js/skycons.js"></script>
-    <!-- Flot -->
-    <script src="js/jquery.flot.js"></script>
-    <script src="js/jquery.flot.pie.js"></script>
-    <script src="js/jquery.flot.time.js"></script>
-    <script src="js/jquery.flot.stack.js"></script>
-    <script src="js/jquery.flot.resize.js"></script>
-    <!-- Flot plugins -->
-    <script src="js/jquery.flot.orderBars.js"></script>
-    <script src="js/jquery.flot.spline.min.js"></script>
-    <script src="js/curvedLines.js"></script>
-    <!-- DateJS -->
-    <script src="js/date.js"></script>
-    <!-- JQVMap -->
-    <script src="js/jquery.vmap.js"></script>
-    <script src="js/jquery.vmap.world.js"></script>
-    <script src="js/jquery.vmap.sampledata.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="js/moment.min.js"></script>
-    <script src="js/daterangepicker.js"></script>
 
-    <!-- Custom Theme Scripts -->
-    <script src="js/custom.min.js"></script>
-
-    <!-- data -->
-    <script src="data/topic_questions.js"></script>
-    <script src="data/topics.js"></script>
-    <script src="data/filter_topics.js"></script>
-    <script src="data/connections.js"></script>
-    <Script src="data/answers.js"></script>
 
     <!-- Flot -->
     <script>
