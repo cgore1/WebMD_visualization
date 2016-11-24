@@ -702,6 +702,8 @@
 
     <!-- data -->
     <script src="data/topic_questions.js"></script>
+    <script src="data/topics.js"></script>
+    <script src="data/filter_topics.js"></script>
 
     <!-- Flot -->
     <script>
@@ -982,11 +984,11 @@
     <!-- Topic Graph -->
 	 <script>
 
-				var topics =  [];
-				var answers = {};
+//		var topics =  [];
+		var answers = {};
 
-				var connections = [];
-				var filterTopics = [];
+		var connections = [];
+//		var filterTopics = [];
 		d3.csv("data/webmd.csv", function(error, data) {
 			d3.csv("data/connections.csv", function(error, graph) {
 
@@ -994,8 +996,8 @@
 					var topic = d.topicname;
 					if(topics.indexOf(topic) === -1)
 					{
-						topics.push(topic);
-						answers[topic] = [];
+		//				topics.push(topic);
+						answers[topic] = {};
 					}
 					else
 					{
@@ -1024,8 +1026,8 @@
 					if(parseInt(link['strength']) > 10)
 					{	
 						connections.push(link);
-						if(filterTopics.indexOf(d.Source) == -1)
-							filterTopics.push(d.Source);
+//						if(filterTopics.indexOf(d.Source) == -1)
+//							filterTopics.push(d.Source);
 						/*if(filterTopics.indexOf(d.Target) == -1)
 							filterTopics.push(d.Target);*/
 					}
