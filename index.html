@@ -704,6 +704,7 @@
     <script src="data/topic_questions.js"></script>
     <script src="data/topics.js"></script>
     <script src="data/filter_topics.js"></script>
+    <script src="data/connections.js"></script>
 
     <!-- Flot -->
     <script>
@@ -987,11 +988,11 @@
 //		var topics =  [];
 		var answers = {};
 
-		var connections = {};
+//		var connections = {};
 		var counter = 1;
 //		var filterTopics = [];
-		d3.csv("data/webmd.csv", function(error, data) {
-			d3.csv("data/connections.csv", function(error, graph) {
+/*		d3.csv("data/webmd.csv", function(error, data) {
+//			d3.csv("data/connections.csv", function(error, graph) {
 
 				data.forEach(function (d) {
 					var topic = d.topicname;
@@ -1016,8 +1017,8 @@
 					}
 			     });
 		
-		
-				graph.forEach(function (d) {
+*/		
+/*				graph.forEach(function (d) {
 			
 					var split = d.toString().split(',');
 					var link = {};
@@ -1031,9 +1032,9 @@
 //						if(filterTopics.indexOf(d.Source) == -1)
 //							filterTopics.push(d.Source);
 						/*if(filterTopics.indexOf(d.Target) == -1)
-							filterTopics.push(d.Target);*/
+							filterTopics.push(d.Target);*//*
 					}
-				});
+				});*/
 			
 			  var visualization = d3plus.viz()
 			    .container("#viz")
@@ -1045,7 +1046,7 @@
 			    .focus(default_topic,
 					function(d) {
 				
-						var panel = d3.select('#questions');
+	/*					var panel = d3.select('#questions');
 						panel.html("");
 						var q = "";
 						var question_count = 0;
@@ -1072,7 +1073,7 @@
 
 							if((++question_count) == 5) break;
 						}		
-					
+	*/				
 						gauge.set(topic_question_stats[d]['answered']);
 					      gauge.setTextField(document.getElementById("gauge-text"));
 						gauge.render();
@@ -1096,9 +1097,9 @@
 		    .width({
 			"small" : 800
 		    })
-		    .draw()
-		});
-	});
+		    .draw();
+//		});
+//	});
 
 	</script>
     <!-- /Topic Graph -->
