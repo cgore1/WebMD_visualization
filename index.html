@@ -935,7 +935,7 @@
 
     <!-- gauge.js -->
     <script>
-	var topic_question_stats = [];
+    var topic_question_stats = {};
 	var opts = {
           lines: 12,
           angle: 0,
@@ -960,16 +960,16 @@
 
       d3.csv("data/answered_total_questions.csv", function(error, data) {
 		data.forEach(function (d) {
-			topic_question_stats.push(d.topic);
+	//		topic_question_stats.push(d.topic);
 			topic_question_stats[d.topic] = {};
-			topic_question_stats[d.topic]['total'] = +d.total;
-			topic_question_stats[d.topic]['answered'] = +d.answered;
+			topic_question_stats[d.topic]["total"] = +d.total;
+			topic_question_stats[d.topic]["answered"] = +d.answered;
 		});
 		
 	      
-	      gauge.set(topic_question_stats[default_topic]['answered']);
+	      gauge.set(topic_question_stats[default_topic]["answered"]);
 	      gauge.setTextField(document.getElementById("gauge-text"));
-	      posts.html(topic_question_stats['default_topic']['total']);
+	      posts.html(topic_question_stats[default_topic]['total']);
 	});
 
 	
@@ -978,11 +978,15 @@
 
     <!-- Topic Graph -->
 	 <script>
-		d3.csv("data/webmd.csv", function(error, data) {
-			d3.csv("data/connections.csv", function(error, graph) {
 
 				var topics =  [];
 				var answers = {};
+
+				var connections = [];
+				var filterTopics = [];
+		d3.csv("data/webmd.csv", function(error, data) {
+			d3.csv("data/connections.csv", function(error, graph) {
+
 				data.forEach(function (d) {
 					var topic = d.topicname;
 					if(topics.indexOf(topic) === -1)
@@ -1007,8 +1011,6 @@
 			     });
 		
 		
-				var connections = [];
-				var filterTopics = [];
 				graph.forEach(function (d) {
 			
 					var split = d.toString().split(',');
