@@ -700,6 +700,9 @@
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
 
+    <!-- data -->
+    <script src="data/topic_questions.js"></script>
+
     <!-- Flot -->
     <script>
       $(document).ready(function() {
@@ -935,7 +938,7 @@
 
     <!-- gauge.js -->
     <script>
-	var topic_question_stats = [];
+//	var topic_question_stats = [];
 	var opts = {
           lines: 12,
           angle: 0,
@@ -957,18 +960,18 @@
 	      gauge.animationSpeed = 32;
       var default_topic = 'Drug';
 
-      d3.csv("data/answered_total_questions.csv", function(error, data) {
+/*      d3.csv("data/answered_total_questions.csv", function(error, data) {
 		data.forEach(function (d) {
 			topic_question_stats.push(d.topic);
 			topic_question_stats[d.topic] = {};
 			topic_question_stats[d.topic]['total'] = +d.total;
 			topic_question_stats[d.topic]['answered'] = +d.answered;
 		});
-		
+*/		
 	      
 	      gauge.set(topic_question_stats[default_topic]['answered']);
 	      gauge.setTextField(document.getElementById("gauge-text"));
-	});
+//	});
 
 	
     </script>
