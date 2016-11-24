@@ -955,7 +955,7 @@
           gauge = new Gauge(target).setOptions(opts);
 	gauge.maxValue = 100;
 	      gauge.animationSpeed = 32;
-      var default_topic = 'Feeding';
+      var default_topic = 'Abdominal Obesity';
       var posts = d3.select("#posts");
 
       d3.csv("data/answered_total_questions.csv", function(error, data) {
@@ -1033,7 +1033,7 @@
 			      "size": "strength",
 			      "value": connections
 			    })
-			    .focus('Feeding',
+			    .focus(default_topic,
 					function(d) {
 				
 						var panel = d3.select('#questions');
