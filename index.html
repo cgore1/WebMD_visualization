@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentellela Alela! | </title>
+    <title>Topic Insights </title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -90,7 +90,7 @@
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="tile-stats">
                   <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
-                  <div class="count">2048</div>
+                  <div class="count" id="posts">2048</div>
                   <h3>Total Posts</h3>
                 </div>
               </div>
@@ -958,20 +958,22 @@
           gauge = new Gauge(target).setOptions(opts);
 	gauge.maxValue = 100;
 	      gauge.animationSpeed = 32;
-      var default_topic = 'Drug';
+      var default_topic = 'Abdominal Obesity';
+      var posts = d3.select("#posts");
 
 /*      d3.csv("data/answered_total_questions.csv", function(error, data) {
 		data.forEach(function (d) {
-			topic_question_stats.push(d.topic);
+	//		topic_question_stats.push(d.topic);
 			topic_question_stats[d.topic] = {};
-			topic_question_stats[d.topic]['total'] = +d.total;
-			topic_question_stats[d.topic]['answered'] = +d.answered;
+			topic_question_stats[d.topic]["total"] = +d.total;
+			topic_question_stats[d.topic]["answered"] = +d.answered;
 		});
 */		
 	      
-	      gauge.set(topic_question_stats[default_topic]['answered']);
+	      gauge.set(topic_question_stats[default_topic]["answered"]);
 	      gauge.setTextField(document.getElementById("gauge-text"));
 //	});
+	      posts.html(topic_question_stats[default_topic]['total']);
 
 	
     </script>
@@ -979,11 +981,15 @@
 
     <!-- Topic Graph -->
 	 <script>
-		d3.csv("data/webmd.csv", function(error, data) {
-			d3.csv("data/connections.csv", function(error, graph) {
 
 				var topics =  [];
 				var answers = {};
+
+				var connections = [];
+				var filterTopics = [];
+		d3.csv("data/webmd.csv", function(error, data) {
+			d3.csv("data/connections.csv", function(error, graph) {
+
 				data.forEach(function (d) {
 					var topic = d.topicname;
 					if(topics.indexOf(topic) === -1)
@@ -1008,8 +1014,6 @@
 			     });
 		
 		
-				var connections = [];
-				var filterTopics = [];
 				graph.forEach(function (d) {
 			
 					var split = d.toString().split(',');
@@ -1022,8 +1026,8 @@
 						connections.push(link);
 						if(filterTopics.indexOf(d.Source) == -1)
 							filterTopics.push(d.Source);
-						if(filterTopics.indexOf(d.Target) == -1)
-							filterTopics.push(d.Target);
+						/*if(filterTopics.indexOf(d.Target) == -1)
+							filterTopics.push(d.Target);*/
 					}
 				});
 			
@@ -1034,7 +1038,7 @@
 			      "size": "strength",
 			      "value": connections
 			    })
-			    .focus('Drug',
+			    .focus(default_topic,
 					function(d) {
 				
 						var panel = d3.select('#questions');
@@ -1067,7 +1071,9 @@
 					
 						gauge.set(topic_question_stats[d]['answered']);
 					      gauge.setTextField(document.getElementById("gauge-text"));
-						gauge.render()
+						gauge.render();
+
+						posts.html(topic_question_stats[d]['total']);
 					}
 
 
