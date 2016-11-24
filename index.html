@@ -987,7 +987,8 @@
 //		var topics =  [];
 		var answers = {};
 
-		var connections = [];
+		var connections = {};
+		var counter = 1;
 //		var filterTopics = [];
 		d3.csv("data/webmd.csv", function(error, data) {
 			d3.csv("data/connections.csv", function(error, graph) {
@@ -1025,7 +1026,8 @@
 					link['strength'] = (d.Weight / 30.0) * 50;
 					if(parseInt(link['strength']) > 10)
 					{	
-						connections.push(link);
+						connections[counter] = link;
+						counter = counter + 1;
 //						if(filterTopics.indexOf(d.Source) == -1)
 //							filterTopics.push(d.Source);
 						/*if(filterTopics.indexOf(d.Target) == -1)
