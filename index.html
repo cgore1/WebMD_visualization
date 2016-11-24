@@ -711,6 +711,12 @@
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
 
+    <!-- data -->
+    <script src="data/topic_questions.js"></script>
+    <script src="data/topics.js"></script>
+    <script src="data/filter_topics.js"></script>
+    <script src="data/connections.js"></script>
+
     <!-- Flot -->
     <script>
       $(document).ready(function() {
@@ -946,7 +952,7 @@
 
     <!-- gauge.js -->
     <script>
-    var topic_question_stats = {};
+//	var topic_question_stats = [];
 	var opts = {
           lines: 12,
           angle: 0,
@@ -969,19 +975,19 @@
       var default_topic = 'Abdominal Obesity';
       var posts = d3.select("#posts");
 
-      d3.csv("data/answered_total_questions.csv", function(error, data) {
+/*      d3.csv("data/answered_total_questions.csv", function(error, data) {
 		data.forEach(function (d) {
 	//		topic_question_stats.push(d.topic);
 			topic_question_stats[d.topic] = {};
 			topic_question_stats[d.topic]["total"] = +d.total;
 			topic_question_stats[d.topic]["answered"] = +d.answered;
 		});
-		
+*/		
 	      
 	      gauge.set(topic_question_stats[default_topic]["answered"]);
 	      gauge.setTextField(document.getElementById("gauge-text"));
+//	});
 	      posts.html(topic_question_stats[default_topic]['total']);
-	});
 
 	
     </script>
@@ -990,20 +996,21 @@
     <!-- Topic Graph -->
 	 <script>
 
-				var topics =  [];
-				var answers = {};
+//		var topics =  [];
+		var answers = {};
 
-				var connections = [];
-				var filterTopics = [];
+//		var connections = {};
+		var counter = 1;
+//		var filterTopics = [];
 		d3.csv("data/webmd.csv", function(error, data) {
-			d3.csv("data/connections.csv", function(error, graph) {
+//			d3.csv("data/connections.csv", function(error, graph) {
 
 				data.forEach(function (d) {
 					var topic = d.topicname;
 					if(topics.indexOf(topic) === -1)
 					{
-						topics.push(topic);
-						answers[topic] = [];
+		//				topics.push(topic);
+						answers[topic] = {};
 					}
 					else
 					{
@@ -1022,7 +1029,7 @@
 			     });
 		
 		
-				graph.forEach(function (d) {
+/*				graph.forEach(function (d) {
 			
 					var split = d.toString().split(',');
 					var link = {};
@@ -1031,13 +1038,14 @@
 					link['strength'] = (d.Weight / 30.0) * 50;
 					if(parseInt(link['strength']) > 10)
 					{	
-						connections.push(link);
-						if(filterTopics.indexOf(d.Source) == -1)
-							filterTopics.push(d.Source);
+						connections[counter] = link;
+						counter = counter + 1;
+//						if(filterTopics.indexOf(d.Source) == -1)
+//							filterTopics.push(d.Source);
 						/*if(filterTopics.indexOf(d.Target) == -1)
-							filterTopics.push(d.Target);*/
+							filterTopics.push(d.Target);*//*
 					}
-				});
+				});*/
 			
 			  var visualization = d3plus.viz()
 			    .container("#viz")
@@ -1049,7 +1057,7 @@
 			    .focus(default_topic,
 					function(d) {
 				
-						var panel = d3.select('#questions');
+	/*					var panel = d3.select('#questions');
 						panel.html("");
 						var q = "";
 						var question_count = 0;
@@ -1076,7 +1084,7 @@
 
 							if((++question_count) == 5) break;
 						}		
-					
+	*/				
 						gauge.set(topic_question_stats[d]['answered']);
 					      gauge.setTextField(document.getElementById("gauge-text"));
 						gauge.render();
@@ -1106,8 +1114,8 @@
 		    .width({
 			"small" : 800
 		    })
-		    .draw()
-		});
+		    .draw();
+//		});
 	});
 
 	</script>
