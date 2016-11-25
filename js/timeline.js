@@ -1,6 +1,6 @@
 function loadTimeline(topic)
 {
-$(document).ready(function() {
+//$(document).ready(function() {
    // month 
       d3.select("#monthChart").html('');
         var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -78,5 +78,5 @@ $(document).ready(function() {
           $(window).resize();
         });
 
-      });
+//      });
 }
