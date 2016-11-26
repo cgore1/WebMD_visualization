@@ -912,7 +912,7 @@
 		var questions_list = d3.select("#questions_list");
 		panel.html("");
 		questions_list.html("");    
-//		d3.select(".actionBar").remove();
+		d3.select(".actionBar").remove();
 
 		var question_count = 1;
 		for(var question in answers[topic])
@@ -944,10 +944,10 @@
 		    }
 		    panel.append("li")
 			    .append("a")
-				.attr("class", select_class)
+	//			.attr("class", select_class)
 				.attr("href", "#"+question_number)
-				.attr("isdone", 0)
-				.attr("rel", question_count)
+	//			.attr("isdone", 0)
+	//			.attr("rel", question_count)
 			    .append("span")
 				.attr("class", "step_no")
 				.html(question_count);
@@ -1018,13 +1018,13 @@
 			    .focus(default_topic,
 					function(d) {
 
-					    swreset("#wizard_verticle"); 
 					    var number_of_questions = setQuestionsForTopic(d);		
 
 					    gauge.set(topic_question_stats[d]['answered']);
 					    gauge.setTextField(document.getElementById("gauge-text"));
 					    gauge.render();
-
+					    
+					    swreset("#wizard_verticle"); 
 					    // Time line update
 
 					    loadTimeline(d);

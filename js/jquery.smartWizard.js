@@ -23,7 +23,8 @@ function SmartWizard(target, options) {
     this.steps        = $(target).children("ul").children("li").children("a"); // Get all anchors
     this.contentWidth = 0;
     this.msgBox = $('<div class="msgBox"><div class="content"></div><a href="#" class="close">X</a></div>');
-    this.elmStepContainer = $('<div id="questions_list"></div>').addClass("stepContainer");
+//    this.elmStepContainer = $('<div id="questions_list"></div>').addClass("stepContainer");
+    this.elmStepContainer = $('#questions_list');
     this.loader = $('<div>Loading</div>').addClass("loader");
     this.buttons = {
         previous : $('<a>'+options.labelPrevious+'</a>').attr("href","#").addClass("buttonPrevious"),
@@ -44,6 +45,8 @@ function SmartWizard(target, options) {
         });
 
         var allDivs = $this.target.children('div');
+	console.log(allDivs);
+	console.log(this.target)
         $this.target.children('ul').addClass("anchor");
         allDivs.addClass("content");
 
@@ -56,7 +59,7 @@ function SmartWizard(target, options) {
 
         $this.elmStepContainer.append(allDivs);
         elmActionBar.append($this.loader);
-        $this.target.append($this.elmStepContainer);
+//        $this.target.append($this.elmStepContainer);
         elmActionBar.append($this.buttons.finish)
                     .append($this.buttons.previous)
                     .append($this.buttons.next);
@@ -439,7 +442,7 @@ $.fn.smartWizard.defaults = {
     transitionEffect: 'fade', // Effect on navigation, none/fade/slide/slideleft
     contentURL:null, // content url, Enables Ajax content loading
     contentCache:true, // cache step contents, if false content is fetched always from ajax url
-    cycleSteps: true, // cycle step navigation
+    cycleSteps: false, // cycle step navigation
     enableFinishButton: false, // make finish button enabled always
 	hideButtonsOnDisabled: true, // when the previous/next/finish buttons are disabled, hide them instead?
     errorSteps:[],    // Array Steps with errors
