@@ -45,7 +45,7 @@
     <!-- bootstrap-daterangepicker -->
     <script src="js/moment.min.js"></script>
     <script src="js/daterangepicker.js"></script>
-
+    <script src="js/jquery.smartWizard.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="js/custom.min.js"></script>
 
@@ -488,20 +488,14 @@
           <div class="row">
             <div class="col-md-9 col-sm-9 col-xs-12">
               <div class="x_panel">
-                <div class="x_title">
+	        <div class="x_title">
                   <h2>Top Rated Questions</h2>
-		   <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <div class="dashboard-widget-content">
-                    <ul class="list-unstyled timeline widget" id="questions">
-                    </ul>
-                  </div>
-                </div>
+		  <div class="clearfix"></div>
+		</div>
+		      <div id="wizard_verticle" class="form_wizard wizard_verticle">
+			  <ul class="list-unstyled wizard_steps anchor" id="questions"></ul>
+			  <div class="stepContainer" id="questions_list"></div>
+		      </div>
               </div>
             </div>
 
@@ -923,12 +917,15 @@
 
 	function setQuestionsForTopic(topic) {
 		var panel = d3.select('#questions');
+		var questions_list = d3.select("#questions_list");
 		panel.html("");
-		
-		var question_count = 0;
+		questions_list.html("");    
+		d3.select(".actionBar").remove();
+
+		var question_count = 1;
 		for(var question in answers[topic])
 		{
-			var node = panel.append("li")
+/*			var node = panel.append("li")
 				.append("div")
 				  .attr("class", "block")
 				.append("div")
@@ -945,9 +942,43 @@
 					.attr("class", "excerpt")
 				    .html('<b>Answer '+(++i)+'</b>: '+answers[topic][question][ans])
 			}
+*/
+		    var question_number = "step-"+question_count+""+question_count;
+		    var select_class = "disabled";
+		    var display = "display:none";
+		    if(question_count == 1) {
+			select_class = "selected";
+			display = "display:block";
+		    }
+		    panel.append("li")
+			    .append("a")
+	//			.attr("class", select_class)
+				.attr("href", "#"+question_number)
+	//			.attr("isdone", 0)
+	//			.attr("rel", question_count)
+			    .append("span")
+				.attr("class", "step_no")
+				.html(question_count);
 
-			if((++question_count) == 5) break;
+		    var question_element = questions_list.append("div")
+							    .attr("id", question_number)
+							    .attr("class", "cotent")
+							    .attr("style", display);
+		    question_element.append("h2")
+				        .attr("class", "stepTitle")
+				        .html(question);
+		    var i = 0;
+		    for(var ans in answers[topic][question]) {
+			question_element.append("p")
+					    .html("<b>Answer "+(++i)+"</b>: "+answers[topic][question][ans]);
+		    }
+		    if(question_count == 5) {
+			break;
+		    }
+		    question_count = question_count + 1;
 		}
+
+		return question_count-1;
 	}
 //	var topic_question_stats = [];
 	var opts = {
@@ -999,17 +1030,21 @@
 			    .focus(default_topic,
 					function(d) {
 				
-						setQuestionsForTopic(d);		
-					
-						gauge.set(topic_question_stats[d]['answered']);
-					      gauge.setTextField(document.getElementById("gauge-text"));
-						gauge.render();
-            // Time line update
+						setQuestionsForTopic(d);
+				                showWordBubble(d);
 
-				    loadTimeline(d);
-            showWordBubble(d);
+					    gauge.set(topic_question_stats[d]['answered']);
+					    gauge.setTextField(document.getElementById("gauge-text"));
+					    gauge.render();
+					    
+					    swreset("#wizard_verticle"); 
+					    // Time line update
 
-						posts.html(topic_question_stats[d]['total']);
+					    loadTimeline(d);
+
+        $('.buttonNext').addClass('btn btn-success');
+        $('.buttonPrevious').addClass('btn btn-primary');
+					    posts.html(topic_question_stats[d]['total']);
 					}
 
 
@@ -1031,5 +1066,18 @@
 		    .draw();
 	</script>
     <!-- /Topic Graph -->
+
+    <!-- jQuery Smart Wizard -->
+    <script>
+      $(document).ready(function() {
+        $('#wizard_verticle').smartWizard({
+          transitionEffect: 'slide'
+        });
+
+        $('.buttonNext').addClass('btn btn-success');
+        $('.buttonPrevious').addClass('btn btn-primary');
+      });
+    </script>
+    <!-- /jQuery Smart Wizard -->
   </body>
 </html>
