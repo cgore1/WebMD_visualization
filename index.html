@@ -76,6 +76,7 @@
      <script src="timeline.js"></script>
      <script src="wordbubble.js"></script>
      <script src="data/monthData.js"></script>
+     <script src="data/tfidfData.js"></script>
 
     <!-- morris.js -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -1062,7 +1063,7 @@
               loadTimeline(default_topic);
             else
               loadTimeline(d);
-
+            showWordBubble(d);
 						posts.html(topic_question_stats[d]['total']);
 					}
 
