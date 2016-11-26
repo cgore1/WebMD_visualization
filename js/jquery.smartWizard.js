@@ -449,7 +449,7 @@ $.fn.smartWizard.defaults = {
     labelNext:'Next',
     labelPrevious:'Previous',
     labelFinish:'',
-    noForwardJumping: true,
+    noForwardJumping: false,
     onLeaveStep: null, // triggers when leaving a step
     onShowStep: null,  // triggers when showing a step
     onFinish: null  // triggers when Finish button is clicked
