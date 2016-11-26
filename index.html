@@ -71,17 +71,17 @@
     <link href="css/daterangepicker.css" rel="stylesheet">
     <!-- D3.js -->
     <script src="js/d3.min.js"></script>
+    <!-- morris.js -->
+    <script src="js/raphael.min.js"></script>
+    <script src="js/morris.min.js"></script>
     <!-- D3plus.js -->
      <script src="js/d3plus.js"></script>
-     <script src="timeline.js"></script>
+     <script src="js/timeline.js"></script>
      <script src="wordbubble.js"></script>
      <script src="data/monthData.js"></script>
      <script src="data/tfidfData.js"></script>
 
-    <!-- morris.js -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-
+    
     <!-- Custom Theme Style -->
     <link href="css/custom.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
@@ -200,6 +200,10 @@
                 </div>
               </div>
 			<div class="x_panel tile">
+      <div class="x_title">
+                          <h2>Word bubble</h2>
+                          <div class="clearfix"></div>
+        </div>
                         <div id="wordbubble">
                         </div>
         </div>
@@ -968,21 +972,14 @@
       var default_topic = "Abdominal Obesity";
       var posts = d3.select("#posts");
 
-/*      d3.csv("data/answered_total_questions.csv", function(error, data) {
-		data.forEach(function (d) {
-	//		topic_question_stats.push(d.topic);
-			topic_question_stats[d.topic] = {};
-			topic_question_stats[d.topic]["total"] = +d.total;
-			topic_question_stats[d.topic]["answered"] = +d.answered;
-		});
-*/		
-	      
-	      gauge.set(topic_question_stats[default_topic]["answered"]);
-	      gauge.setTextField(document.getElementById("gauge-text"));
-//	});
-	      posts.html(topic_question_stats[default_topic]['total']);
-		  setQuestionsForTopic(default_topic);
+      
+	 gauge.set(topic_question_stats[default_topic]["answered"]);
+	 gauge.setTextField(document.getElementById("gauge-text"));
+	 posts.html(topic_question_stats[default_topic]['total']);
+	 setQuestionsForTopic(default_topic);
 
+    loadTimeline(default_topic);
+    showWordBubble(default_topic);
 	
     </script>
     <!-- /gauge.js -->
@@ -990,57 +987,7 @@
     <!-- Topic Graph -->
 	 <script>
 
-//		var topics =  [];
-//		var answers = {};
-
-//		var connections = {};
 		var counter = 1;
-//		var filterTopics = [];
-/*		d3.csv("data/webmd.csv", function(error, data) {
-//			d3.csv("data/connections.csv", function(error, graph) {
-
-				data.forEach(function (d) {
-					var topic = d.topicname;
-					if(topics.indexOf(topic) === -1)
-					{
-		//				topics.push(topic);
-						answers[topic] = {};
-					}
-					else
-					{
-						var t = answers[topic];
-						if(t === undefined)
-						{
-							answers[topic] = {};
-							t = answers[topic];
-						}
-			
-						if(t[d.questiontitle] === undefined)
-							t[d.questiontitle] = [];
-			
-						t[d.questiontitle].push(d.answercontent);
-					}
-			     });
-
-*/		
-		
-/*				graph.forEach(function (d) {
-			
-					var split = d.toString().split(',');
-					var link = {};
-					link['source'] = d.Source;
-					link['target'] = d.Target;
-					link['strength'] = (d.Weight / 30.0) * 50;
-					if(parseInt(link['strength']) > 10)
-					{	
-						connections[counter] = link;
-						counter = counter + 1;
-//						if(filterTopics.indexOf(d.Source) == -1)
-//							filterTopics.push(d.Source);
-						/*if(filterTopics.indexOf(d.Target) == -1)
-							filterTopics.push(d.Target);*//*
-					}
-				});*/
 			
 			  var visualization = d3plus.viz()
 			    .container("#viz")
@@ -1057,13 +1004,11 @@
 						gauge.set(topic_question_stats[d]['answered']);
 					      gauge.setTextField(document.getElementById("gauge-text"));
 						gauge.render();
-
             // Time line update
-            if(!d)
-              loadTimeline(default_topic);
-            else
-              loadTimeline(d);
+
+				    loadTimeline(d);
             showWordBubble(d);
+
 						posts.html(topic_question_stats[d]['total']);
 					}
 
@@ -1084,14 +1029,7 @@
 			"small" : 800
 		    })
 		    .draw();
-//		});
-//	});
-
 	</script>
     <!-- /Topic Graph -->
-
-  <script>
-    loadTimeline();
-  </script>>
   </body>
 </html>

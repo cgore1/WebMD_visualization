@@ -52,7 +52,7 @@ var force = d3.layout.force()
     .charge(0)
     .on("tick", tick)
     .start();
-
+d3.select("#wordbubble").html('');
 var svg = d3.select("#wordbubble").append("svg")
     .attr("width", width)
     .attr("height", height);
