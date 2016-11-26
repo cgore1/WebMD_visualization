@@ -54,7 +54,12 @@
     <script src="data/topics.js"></script>
     <script src="data/filter_topics.js"></script>
     <script src="data/connections.js"></script>
-    <Script src="data/answers.js"></script>
+    <script src="data/answers.js"></script>
+    <!-- JQVMap -->
+    <script src="js/jquery.vmap.js"></script>
+    <script src="js/jquery.vmap.world.js"></script>
+    <script src="js/jquery.vmap.usa.js"></script>
+    <script src="js/jquery.vmap.sampledata.js"></script>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -78,9 +83,8 @@
      <script src="js/d3plus.js"></script>
      <script src="js/timeline.js"></script>
      <script src="wordbubble.js"></script>
-     <script src="data/monthData.js"></script>
-     <script src="data/tfidfData.js"></script>
-
+     <script src="data/monthData.js"></script> <script src="data/tfidfData.js"></script>
+ 
     
     <!-- Custom Theme Style -->
     <link href="css/custom.min.css" rel="stylesheet">
@@ -90,49 +94,27 @@
   <body class="nav-md">
     <div class="container body">
       <div class="main_container">
-        <div class="col-md-3 left_col menu_fixed">
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><span>Topic Insight</span></a>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu menu_fixed">
-              <div class="menu_section">
-                <h3>General</h3>
-                <ul class="nav side-menu">
-                  <li class="current-page"><a><i class="fa fa-home"></i> Topic Insight </a></li>
-                  <li><a href="global.html"><i class="fa fa-edit"></i> Global Insight </a></li>
-                </ul>
-              </div>
-	        </div>
-              <!-- /sidebar menu -->
-
-
-            <!-- /menu footer buttons -->
-            <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-              </a>
-            </div>
-            <!-- /menu footer buttons -->
-          </div>
-        </div>
-
-       
         <!-- page content -->
         <div class="right_col" role="main">
+	  <div class="row">
+            <div class="page-title">
+              <div class="title_left" style="text-align:center">
+                <h1>Other Charts</h1>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Find meaning for a term">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="clearfix"></div>
           <!-- top tiles -->
           <div class="row top_tiles">
               <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -168,14 +150,48 @@
             <!-- /top tiles -->
 
           <div class="row">
-            <div class="col-md-9 col-sm-12 col-xs-12">
+	    <div class="col-md-3 col-sm-12 col-xs-12">
+	      <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+		  <h2> Topic Info</h2>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <div class="dashboard-widget-content">
+                    <div class="col-md-3 hidden-small">
+			Some random information about this topic maybe?
+		    </div>
+                    <div class="sidebar-widget sidebar-widget" style="width:66.67%;">
+                      <h4>% Answered Questions</h4>
+                      <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
+                      <div class="goal-wrapper">
+                        <span id="gauge-text" class="gauge-value pull-left">0</span>
+                        <span id="goal-text" class="goal-value pull-right">100</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+		<div class="x_panel tile">
+      <div class="x_title">
+                          <h2>Word bubble</h2>
+                          <div class="clearfix"></div>
+        </div>
+                        <div id="wordbubble">
+                        </div>
+        </div>
+      </div>
+
+            <div class="col-md-6 col-sm-12 col-xs-12">
 		<div class="dashboard_graph x_panel">
+		    <div class="x_title">
+			<h2>Topic Network</h2>
+			<div class="clearfix"></div>
+		    </div>
 		    <div id="viz">
 		   </div>
-
 		</div>
-
-    </div>
+	    </div>
 
 	    <div class="col-md-3 col-sm-12 col-xs-12">
 	      <div class="x_panel tile fixed_height_320">
@@ -429,59 +445,16 @@
               </div>
             </div>
 
+	<div class="col-md-4 col-sm-12 col-xs-12">
+		   <div class="x_panel tile fixed_height_320 overflow_hidden">
+			<div class="x_title">
+			<h2>User Map</h2>
+			<div class="clearfix"></div>
+		  </div>
 
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="x_panel tile fixed_height_320">
-                <div class="x_title">
-                  <h2>Quick Settings</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <div class="dashboard-widget-content">
-                    <ul class="quick-list">
-                      <li><i class="fa fa-calendar-o"></i><a href="#">Settings</a>
-                      </li>
-                      <li><i class="fa fa-bars"></i><a href="#">Subscription</a>
-                      </li>
-                      <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a> </li>
-                      <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
-                      </li>
-                      <li><i class="fa fa-bar-chart"></i><a href="#">Auto Renewal</a> </li>
-                      <li><i class="fa fa-line-chart"></i><a href="#">Achievements</a>
-                      </li>
-                      <li><i class="fa fa-area-chart"></i><a href="#">Logout</a>
-                      </li>
-                    </ul>
-
-                    <div class="sidebar-widget">
-                      <h4>Profile Completion</h4>
-                      <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
-                      <div class="goal-wrapper">
-                        <span class="gauge-value pull-left">$</span>
-                        <span id="gauge-text" class="gauge-value pull-left">3,200</span>
-                        <span id="goal-text" class="goal-value pull-right">$5,000</span>
-                      </div>
-                    </div>
+                        <div id="usa_map" style="height: 230px ! important; position: relative; overflow: hidden;"></div>
                   </div>
-                </div>
-              </div>
-            </div>
-
+                      </div> 
           </div>
 
 
@@ -681,7 +654,7 @@
 
     <!-- Flot -->
     <script>
-      $(document).ready(function() {
+      $(document).ready(function(e) {
         var data1 = [
           [gd(2012, 1, 1), 17],
           [gd(2012, 1, 2), 74],
@@ -770,6 +743,18 @@
             scaleColors: ['#E6F2F0', '#149B7E'],
             normalizeFunction: 'polynomial'
         });
+	$('#usa_map').vectorMap({
+            map: 'usa_en',
+            backgroundColor: null,
+            color: '#ffffff',
+            hoverOpacity: 0.7,
+            selectedColor: '#666666',
+            enableZoom: true,
+            showTooltip: true,
+            values: sample_data,
+            scaleColors: ['#E6F2F0', '#149B7E'],
+            normalizeFunction: 'polynomial'
+        }); 
       });
     </script>
     <!-- /JQVMap -->
@@ -1027,7 +1012,7 @@
 			      "size": "strength",
 			      "value": connections
 			    })
-			    .focus(default_topic,
+			    .focus({ "value": default_topic, "tooltip": false} ,
 					function(d) {
 				
 						setQuestionsForTopic(d);
@@ -1059,9 +1044,9 @@
 					"value": filterTopics
 				}]
 			})
-		    .height(731)
+		    .height(796)
 		    .width({
-			"small" : 800
+			"small" : 640
 		    })
 		    .draw();
 	</script>
@@ -1077,6 +1062,7 @@
         $('.buttonNext').addClass('btn btn-success');
         $('.buttonPrevious').addClass('btn btn-primary');
       });
+ 
     </script>
     <!-- /jQuery Smart Wizard -->
   </body>
