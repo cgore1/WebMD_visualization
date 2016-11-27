@@ -1,7 +1,7 @@
 function showWordBubble(topic)
 {
 $(document).ready(function() {
-var width = 300,
+var width = 345,
     height = 400,
     padding = 1.5, // separation between same-color nodes
     clusterPadding = 6, // separation between different-color nodes

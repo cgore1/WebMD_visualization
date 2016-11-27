@@ -55,6 +55,10 @@
     <script src="data/filter_topics.js"></script>
     <script src="data/connections.js"></script>
     <script src="data/answers.js"></script>
+    <script src="data/wordbubble.js"></script>
+    <script src="data/monthData.js"></script> 
+    <script src="data/tfidfData.js"></script>
+    <script src="data/topic_members.js"></script>
     <!-- JQVMap -->
     <script src="js/jquery.vmap.js"></script>
     <script src="js/jquery.vmap.world.js"></script>
@@ -82,8 +86,6 @@
     <!-- D3plus.js -->
      <script src="js/d3plus.js"></script>
      <script src="js/timeline.js"></script>
-     <script src="wordbubble.js"></script>
-     <script src="data/monthData.js"></script> <script src="data/tfidfData.js"></script>
  
     
     <!-- Custom Theme Style -->
@@ -215,14 +217,23 @@
                   </div>
                 </div>
               </div>
-			<div class="x_panel tile">
-      <div class="x_title">
-                          <h2>Word bubble</h2>
-                          <div class="clearfix"></div>
-        </div>
-                        <div id="wordbubble">
-                        </div>
-        </div>
+			
+              <div class="x_panel tile fixed_height_320 overflow_hidden">
+                <div class="x_title">
+                  <h2>Helpful Members</h2>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+				  <div class="row">
+					<div class="left" id="canvas1-parent">
+				        <canvas id="canvas1" height="200" width="200" style="margin: 15px 10px 10px 0"></canvas>
+					</div>
+					<div id="canvas1-legend" class="chart-legend"></div>
+					<div>					  
+					</div>
+				  </div>	
+                </div>
+              </div>
       </div>
 	    </div>
       <div class="row">
@@ -361,86 +372,6 @@
                     <div class="clearfix"></div>
                   </div>
 
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <div class="x_panel tile fixed_height_320 overflow_hidden">
-                <div class="x_title">
-                  <h2>Device Usage</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <table class="" style="width:100%">
-                    <tr>
-                      <th style="width:37%;">
-                        <p>Top 5</p>
-                      </th>
-                      <th>
-                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                          <p class="">Device</p>
-                        </div>
-                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                          <p class="">Progress</p>
-                        </div>
-                      </th>
-                    </tr>
-                    <tr>
-                      <td>
-                        <canvas id="canvas1" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
-                      </td>
-                      <td>
-                        <table class="tile_info">
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square blue"></i>IOS </p>
-                            </td>
-                            <td>30%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square green"></i>Android </p>
-                            </td>
-                            <td>10%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square purple"></i>Blackberry </p>
-                            </td>
-                            <td>20%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square aero"></i>Symbian </p>
-                            </td>
-                            <td>15%</td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <p><i class="fa fa-square red"></i>Others </p>
-                            </td>
-                            <td>30%</td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-                  </table>
                 </div>
               </div>
             </div>
@@ -780,55 +711,12 @@
     </script>
     <!-- /Skycons -->
 
-    <!-- Doughnut Chart -->
-    <script>
-      $(document).ready(function(){
-        var options = {
-          legend: false,
-          responsive: false
-        };
-
-        new Chart(document.getElementById("canvas1"), {
-          type: 'doughnut',
-          tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-          data: {
-            labels: [
-              "Symbian",
-              "Blackberry",
-              "Other",
-              "Android",
-              "IOS"
-            ],
-            datasets: [{
-              data: [15, 20, 30, 10, 30],
-              backgroundColor: [
-                "#BDC3C7",
-                "#9B59B6",
-                "#E74C3C",
-                "#26B99A",
-                "#3498DB"
-              ],
-              hoverBackgroundColor: [
-                "#CFD4D8",
-                "#B370CF",
-                "#E95E4F",
-                "#36CAAB",
-                "#49A9EA"
-              ]
-            }]
-          },
-          options: options
-        });
-      });
-    </script>
-    <!-- /Doughnut Chart -->
-    
+   
     <!-- bootstrap-daterangepicker -->
     <script>
       $(document).ready(function() {
 
         var cb = function(start, end, label) {
-          console.log(start.toISOString(), end.toISOString(), label);
           $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
         };
 
@@ -910,24 +798,7 @@
 		var question_count = 1;
 		for(var question in answers[topic])
 		{
-/*			var node = panel.append("li")
-				.append("div")
-				  .attr("class", "block")
-				.append("div")
-				  .attr("class", "block_content");
 
-			node.append("h2")
-				.attr("class", "title")
-			    .append("a")
-				.html(question)
-
-			var i = 0;
-			for(var ans in answers[topic][question]) {
-				node.append("p")
-					.attr("class", "excerpt")
-				    .html('<b>Answer '+(++i)+'</b>: '+answers[topic][question][ans])
-			}
-*/
 		    var question_number = "step-"+question_count+""+question_count;
 		    var select_class = "disabled";
 		    var display = "display:none";
@@ -1000,6 +871,62 @@
     </script>
     <!-- /gauge.js -->
 
+    <!-- Doughnut Chart -->
+    <script>
+      var member_helpful_chart;
+	  var options = {
+          legend: true,
+          responsive: false,
+		  tooltip: true
+        };
+	  function member_helper_chart_draw(topic) {
+			d3.select("#canvas1-parent").html("");
+			d3.select("#canvas1-legend").html("");
+			d3.select("#canvas1-parent").append("canvas")
+							.attr("id", "canvas1")
+							.attr("height", "200")
+							.attr("width", "200")
+							.attr("style", "margin: 15px 10px 10px 0");
+
+			topic_members = helpers[topic];
+		    member_helpful_chart = new Chart(document.getElementById("canvas1"), {
+		      type: 'doughnut',
+		      tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+		      data: {
+		        labels: topic_members["members"],
+		        datasets: [{
+		          data: topic_members["memberhelpfulvotes"],
+		          backgroundColor: [
+		            "#BDC3C7",
+		            "#9B59B6",
+		            "#E74C3C",
+		            "#26B99A",
+		            "#3498DB",
+					"#0DC377",
+		            "#FB5936",
+		            "#474CDC",
+		            "#C6B91A",
+		            "#B4982B"
+		          ],
+		          hoverBackgroundColor: [
+		            "#CFD4D8",
+		            "#B370CF",
+		            "#E95E4F",
+		            "#36CAAB",
+		            "#49A9EA"
+		          ]
+		        }]
+		      },
+		      options: options
+		    });
+		document.getElementById('canvas1-legend').innerHTML = member_helpful_chart.generateLegend();
+	  }
+      $(document).ready(function(){
+		member_helper_chart_draw(default_topic);
+      });
+    </script>
+    <!-- /Doughnut Chart -->
+ 
     <!-- Topic Graph -->
 	 <script>
 
@@ -1024,7 +951,7 @@
 					    
 					    swreset("#wizard_verticle"); 
 					    // Time line update
-
+						member_helper_chart_draw(d);
 					    loadTimeline(d);
 
         $('.buttonNext').addClass('btn btn-success');
