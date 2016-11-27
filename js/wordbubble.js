@@ -11,7 +11,6 @@ if(!topic)
   return;
 var data = tfidfD[topic][0];
 
-console.log(data);
 var n = 15, // total number of nodes
     m = 1; // number of distinct clusters
 

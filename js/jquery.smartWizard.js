@@ -11,7 +11,6 @@
  * http://tech-laboratory.blogspot.com
  */
 function swreset(target) {
-	console.log("reset");
 	wiz = new SmartWizard($(target),  $.fn.smartWizard.defaults);
         $(target).data('smartWizard', wiz);
     }
@@ -45,8 +44,6 @@ function SmartWizard(target, options) {
         });
 
         var allDivs = $this.target.children('div');
-	console.log(allDivs);
-	console.log(this.target)
         $this.target.children('ul').addClass("anchor");
         allDivs.addClass("content");
 
@@ -412,7 +409,6 @@ $.fn.smartWizard = function(method) {
     var allObjs = this.each(function() {
         var wiz = $(this).data('smartWizard');
 	if (typeof method == 'object' || ! method || ! wiz) {
-		console.log("in here");
             var options = $.extend({}, $.fn.smartWizard.defaults, method || {});
             if (! wiz) {
                 wiz = new SmartWizard($(this), options);
