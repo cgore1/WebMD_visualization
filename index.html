@@ -560,7 +560,7 @@
                 gauge = new Gauge(target).setOptions(opts);
             gauge.maxValue = 100;
             gauge.animationSpeed = 32;
-            var default_topic = "Abdominal Obesity";
+            var default_topic = "Drug";
             var posts = d3.select("#posts");
 
 
@@ -680,7 +680,7 @@
                         "method": "focus",
                         "type": "drop",
                         "label": "Disease",
-                        "value": filterTopics
+                        "value": topics
                     }]
                 })
                 .height(585)
