@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -8,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Topic Insights </title>
-        <!-- jQuery -->
+    <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="js/bootstrap.min.js"></script>
@@ -54,7 +55,7 @@
     <script src="data/filter_topics.js"></script>
     <script src="data/connections.js"></script>
     <script src="data/answers.js"></script>
-    <script src="data/monthData.js"></script> 
+    <script src="data/monthData.js"></script>
     <script src="data/tfidfData.js"></script>
     <script src="data/topic_members.js"></script>
     <!-- JQVMap -->
@@ -73,7 +74,7 @@
     <!-- bootstrap-progressbar -->
     <link href="css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
-    <link href="css/jqvmap.min.css" rel="stylesheet"/>
+    <link href="css/jqvmap.min.css" rel="stylesheet" />
     <!-- bootstrap-daterangepicker -->
     <link href="css/daterangepicker.css" rel="stylesheet">
     <!-- D3.js -->
@@ -82,887 +83,887 @@
     <script src="js/raphael.min.js"></script>
     <script src="js/morris.min.js"></script>
     <!-- D3plus.js -->
-     <script src="js/d3plus.js"></script>
-     <script src="js/timeline.js"></script>
- 
+    <script src="js/d3plus.js"></script>
+    <script src="js/timeline.js"></script>
+
     <script src="js/wordbubble.js"></script>
     <!-- Custom Theme Style -->
     <link href="css/custom.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
-  </head>
+</head>
 
-  <body class="nav-md">
+<body class="nav-md">
     <div class="container body">
-      <div class="main_container">
-        <!-- page content -->
-        <div class="right_col" role="main">
-	  <div class="row">
-            <div class="page-title">
-              <div class="title_left" style="text-align:center">
-                <h1>Topic Insights</h1>
-              </div>
+        <div class="main_container">
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="row">
+                    <div class="page-title">
+                        <div class="title_left" style="text-align:center">
+                            <h1>Topic Insights</h1>
+                        </div>
 
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Find meaning for a term">
-                    <span class="input-group-btn">
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Find meaning for a term">
+                                    <span class="input-group-btn">
                       <button class="btn btn-default" type="button">Go!</button>
                     </span>
-                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <!-- top tiles -->
+                    <div class="row top_tiles">
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-check-square-o"></i></div>
+                                <div class="count">179</div>
+                                <h3>Select Topic Above</h3>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
+                                <div class="count" id="posts">2048</div>
+                                <h3>Total Posts</h3>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-comments-o"></i></div>
+                                <div class="count">179</div>
+                                <h3>Users</h3>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
+                                <div class="count">5</div>
+                                <h3>Experts</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- /top tiles -->
+
+                    <div class="row">
+                        <div class="col-md-3 col-sm-12 col-xs-12">
+                            <div class="x_panel tile fixed_height_320">
+                                <div class="x_title">
+                                    <h2> Topic Info</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="dashboard-widget-content">
+                                        <div class="col-md-3 hidden-small">
+                                            Some random information about this topic maybe?
+                                        </div>
+                                        <div class="sidebar-widget sidebar-widget" style="width:66.67%;">
+                                            <h4>% Answered Questions</h4>
+                                            <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
+                                            <div class="goal-wrapper">
+                                                <span id="gauge-text" class="gauge-value pull-left">0</span>
+                                                <span id="goal-text" class="goal-value pull-right">100</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="x_panel tile">
+                                <div class="x_title">
+                                    <h2>Word bubble</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div id="wordbubble">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="dashboard_graph x_panel">
+                                <div class="x_title">
+                                    <h2>Topic Network</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div id="viz">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-sm-12 col-xs-12">
+                            <div class="x_panel tile fixed_height_320 overflow_hidden">
+                                <div class="x_title">
+                                    <h2>Helpful Members</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="row">
+                                        <div class="left" id="canvas1-parent">
+                                            <canvas id="canvas1" height="250" width="350" style="margin: 15px 10px 10px 0"></canvas>
+                                        </div>
+                                        <div id="canvas1-legend" class="chart-legend"></div>
+                                        <div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Daily active users <small>Sessions</small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Settings 1</a>
+                                                </li>
+                                                <li><a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="temperature"><b>Monday</b>, 07:30 AM
+                                                <span>F</span>
+                                                <span><b>C</b></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="weather-icon">
+                                                <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <div class="weather-text">
+                                                <h2>Texas <br><i>Partly Cloudy Day</i></h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="weather-text pull-right">
+                                            <h3 class="degrees">23</h3>
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+
+                                    <div class="row weather-days">
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Mon</h2>
+                                                <h3 class="degrees">25</h3>
+                                                <canvas id="clear-day" width="32" height="32"></canvas>
+                                                <h5>15 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Tue</h2>
+                                                <h3 class="degrees">25</h3>
+                                                <canvas height="32" width="32" id="rain"></canvas>
+                                                <h5>12 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Wed</h2>
+                                                <h3 class="degrees">27</h3>
+                                                <canvas height="32" width="32" id="snow"></canvas>
+                                                <h5>14 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Thu</h2>
+                                                <h3 class="degrees">28</h3>
+                                                <canvas height="32" width="32" id="sleet"></canvas>
+                                                <h5>15 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Fri</h2>
+                                                <h3 class="degrees">28</h3>
+                                                <canvas height="32" width="32" id="wind"></canvas>
+                                                <h5>11 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <div class="daily-weather">
+                                                <h2 class="day">Sat</h2>
+                                                <h3 class="degrees">26</h3>
+                                                <canvas height="32" width="32" id="cloudy"></canvas>
+                                                <h5>10 <i>km/h</i></h5>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="x_panel tile fixed_height_320">
+                                        <div class="x_title">
+                                            <h2>App Versions</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="#">Settings 1</a>
+                                                        </li>
+                                                        <li><a href="#">Settings 2</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <h4>App Usage across versions</h4>
+                                            <div class="widget_summary">
+                                                <div class="w_left w_25">
+                                                    <span>0.1.5.2</span>
+                                                </div>
+                                                <div class="w_center w_55">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
+                                                            <span class="sr-only">60% Complete</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="w_right w_20">
+                                                    <span>123k</span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+
+                                            <div class="widget_summary">
+                                                <div class="w_left w_25">
+                                                    <span>0.1.5.3</span>
+                                                </div>
+                                                <div class="w_center w_55">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
+                                                            <span class="sr-only">60% Complete</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="w_right w_20">
+                                                    <span>53k</span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="widget_summary">
+                                                <div class="w_left w_25">
+                                                    <span>0.1.5.4</span>
+                                                </div>
+                                                <div class="w_center w_55">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+                                                            <span class="sr-only">60% Complete</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="w_right w_20">
+                                                    <span>23k</span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="widget_summary">
+                                                <div class="w_left w_25">
+                                                    <span>0.1.5.5</span>
+                                                </div>
+                                                <div class="w_center w_55">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
+                                                            <span class="sr-only">60% Complete</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="w_right w_20">
+                                                    <span>3k</span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="widget_summary">
+                                                <div class="w_left w_25">
+                                                    <span>0.1.5.6</span>
+                                                </div>
+                                                <div class="w_center w_55">
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
+                                                            <span class="sr-only">60% Complete</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="w_right w_20">
+                                                    <span>1k</span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="x_panel tile fixed_height_320 overflow_hidden">
+                                        <div class="x_title">
+                                            <h2>User Map</h2>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                        <div id="usa_map" style="height: 230px ! important; position: relative; overflow: hidden;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- -->
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="dashboard_graph x_panel">
+                                <div class="x_title">
+                                    <h2>Monthly posts</h2>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div id="monthChart"></div>
+                            </div>
+                            <div class="dashboard_graph x_panel">
+                                <div class="x_title">
+                                    <h2>Hourly posts</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div id="hourChart">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+
+                    </div>
+                    <br />
+
+
+                    <div class="row">
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Top Rated Questions</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div id="wizard_verticle" class="form_wizard wizard_verticle">
+                                    <ul class="list-unstyled wizard_steps anchor" id="questions"></ul>
+                                    <div class="stepContainer" id="questions_list"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-3 col-sm-3 col-xs-12">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Visitors location <small>geo-presentation</small></h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                </li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><a href="#">Settings 1</a>
+                                                        </li>
+                                                        <li><a href="#">Settings 2</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <div class="dashboard-widget-content">
+                                                <div class="col-md-4 hidden-small">
+                                                    <h2 class="line_30">125.7k Views from 60 countries</h2>
+
+                                                    <table class="countries_list">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>United States</td>
+                                                                <td class="fs15 fw700 text-right">33%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>France</td>
+                                                                <td class="fs15 fw700 text-right">27%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Germany</td>
+                                                                <td class="fs15 fw700 text-right">16%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Spain</td>
+                                                                <td class="fs15 fw700 text-right">11%</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Britain</td>
+                                                                <td class="fs15 fw700 text-right">10%</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div id="world-map-gdp" class="col-md-8 col-sm-12 col-xs-12" style="height:230px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <!-- start of weather widget -->
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+
+                                    <!-- -->
+                                </div>
+                                <!-- end of weather widget -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <!-- /page content -->
+
             </div>
-            
-            <div class="clearfix"></div>
-          <!-- top tiles -->
-          <div class="row top_tiles">
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="tile-stats">
-                  <div class="icon"><i class="fa fa-check-square-o"></i></div>
-                  <div class="count">179</div>
-                  <h3>Select Topic Above</h3>
-                </div>
-              </div>
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="tile-stats">
-                  <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
-                  <div class="count" id="posts">2048</div>
-                  <h3>Total Posts</h3>
-                </div>
-              </div>
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="tile-stats">
-                  <div class="icon"><i class="fa fa-comments-o"></i></div>
-                  <div class="count">179</div>
-                  <h3>Users</h3>
-                </div>
-              </div>
-              <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="tile-stats">
-                  <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
-                  <div class="count">5</div>
-                  <h3>Experts</h3>
-                </div>
-              </div>
-            </div>
-
-            <!-- /top tiles -->
-
-          <div class="row">
-	    <div class="col-md-3 col-sm-12 col-xs-12">
-	      <div class="x_panel tile fixed_height_320">
-                <div class="x_title">
-		  <h2> Topic Info</h2>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <div class="dashboard-widget-content">
-                    <div class="col-md-3 hidden-small">
-			Some random information about this topic maybe?
-		    </div>
-                    <div class="sidebar-widget sidebar-widget" style="width:66.67%;">
-                      <h4>% Answered Questions</h4>
-                      <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
-                      <div class="goal-wrapper">
-                        <span id="gauge-text" class="gauge-value pull-left">0</span>
-                        <span id="goal-text" class="goal-value pull-right">100</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-		<div class="x_panel tile">
-      <div class="x_title">
-                          <h2>Word bubble</h2>
-                          <div class="clearfix"></div>
         </div>
-                        <div id="wordbubble">
-                        </div>
-        </div>
-      </div>
-
-            <div class="col-md-6 col-sm-12 col-xs-12">
-		<div class="dashboard_graph x_panel">
-		    <div class="x_title">
-			<h2>Topic Network</h2>
-			<div class="clearfix"></div>
-		    </div>
-		    <div id="viz">
-		   </div>
-		</div>
-	    </div>
-
-	    <div class="col-md-3 col-sm-12 col-xs-12">			
-              <div class="x_panel tile fixed_height_320 overflow_hidden">
-                <div class="x_title">
-                  <h2>Helpful Members</h2>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-				  <div class="row">
-					<div class="left" id="canvas1-parent">
-				        <canvas id="canvas1" height="250" width="350" style="margin: 15px 10px 10px 0"></canvas>
-					</div>
-					<div id="canvas1-legend" class="chart-legend"></div>
-					<div>					  
-					</div>
-				  </div>	
-                </div>
-              </div>
-
-			<div class="x_panel">
-                    <div class="x_title">
-                      <h2>Daily active users <small>Sessions</small></h2>
-                      <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                      </ul>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                      <div class="row">
-                        <div class="col-sm-12">
-                          <div class="temperature"><b>Monday</b>, 07:30 AM
-                            <span>F</span>
-                            <span><b>C</b></span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-4">
-                          <div class="weather-icon">
-                            <canvas height="84" width="84" id="partly-cloudy-day"></canvas>
-                          </div>
-                        </div>
-                        <div class="col-sm-8">
-                          <div class="weather-text">
-                            <h2>Texas <br><i>Partly Cloudy Day</i></h2>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-12">
-                        <div class="weather-text pull-right">
-                          <h3 class="degrees">23</h3>
-                        </div>
-                      </div>
-
-                      <div class="clearfix"></div>
-
-                      <div class="row weather-days">
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Mon</h2>
-                            <h3 class="degrees">25</h3>
-                            <canvas id="clear-day" width="32" height="32"></canvas>
-                            <h5>15 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Tue</h2>
-                            <h3 class="degrees">25</h3>
-                            <canvas height="32" width="32" id="rain"></canvas>
-                            <h5>12 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Wed</h2>
-                            <h3 class="degrees">27</h3>
-                            <canvas height="32" width="32" id="snow"></canvas>
-                            <h5>14 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Thu</h2>
-                            <h3 class="degrees">28</h3>
-                            <canvas height="32" width="32" id="sleet"></canvas>
-                            <h5>15 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Fri</h2>
-                            <h3 class="degrees">28</h3>
-                            <canvas height="32" width="32" id="wind"></canvas>
-                            <h5>11 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="daily-weather">
-                            <h2 class="day">Sat</h2>
-                            <h3 class="degrees">26</h3>
-                            <canvas height="32" width="32" id="cloudy"></canvas>
-                            <h5>10 <i>km/h</i></h5>
-                          </div>
-                        </div>
-                        <div class="clearfix"></div>
-                      </div>
-                    </div>
-                  </div>
-      </div>
-	    </div>
-      <div class="row">
-		<div class="col-md-6 col-sm-6 col-xs-12">
-		  <div class="row">
-           <div class="col-md-6 col-sm-6 col-xs-12">
-  			<div class="x_panel tile fixed_height_320">
-                <div class="x_title">
-                  <h2>App Versions</h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Settings 1</a>
-                        </li>
-                        <li><a href="#">Settings 2</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a class="close-link"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
-                </div>
-                <div class="x_content">
-                  <h4>App Usage across versions</h4>
-                  <div class="widget_summary">
-                    <div class="w_left w_25">
-                      <span>0.1.5.2</span>
-                    </div>
-                    <div class="w_center w_55">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 66%;">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w_right w_20">
-                      <span>123k</span>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-
-                  <div class="widget_summary">
-                    <div class="w_left w_25">
-                      <span>0.1.5.3</span>
-                    </div>
-                    <div class="w_center w_55">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 45%;">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w_right w_20">
-                      <span>53k</span>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="widget_summary">
-                    <div class="w_left w_25">
-                      <span>0.1.5.4</span>
-                    </div>
-                    <div class="w_center w_55">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w_right w_20">
-                      <span>23k</span>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="widget_summary">
-                    <div class="w_left w_25">
-                      <span>0.1.5.5</span>
-                    </div>
-                    <div class="w_center w_55">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 5%;">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w_right w_20">
-                      <span>3k</span>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="widget_summary">
-                    <div class="w_left w_25">
-                      <span>0.1.5.6</span>
-                    </div>
-                    <div class="w_center w_55">
-                      <div class="progress">
-                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 2%;">
-                          <span class="sr-only">60% Complete</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="w_right w_20">
-                      <span>1k</span>
-                    </div>
-                    <div class="clearfix"></div>
-                  </div>
-
-                </div>
-              </div>
-			</div>
-			<div class="col-md-6 col-sm-6 col-xs-12">
-		   <div class="x_panel tile fixed_height_320 overflow_hidden">
-				<div class="x_title">
-					<h2>User Map</h2>
-					<div class="clearfix"></div>
-		  		</div>
-
-                <div id="usa_map" style="height: 230px ! important; position: relative; overflow: hidden;"></div>
-           </div>
-     </div> 
-		</div>
-<!-- -->
-    	</div>
-      <div class="col-md-6 col-sm-12 col-xs-12">
-      <div class="dashboard_graph x_panel">
-      	<div class="x_title">
-          <h2>Monthly posts</h2>
-          
-          <div class="clearfix"></div>
-        </div>
-        <div id="monthChart"></div>
-      </div>
-	  <div class="dashboard_graph x_panel">
-	    <div class="x_title">
-	      <h2>Hourly posts</h2>
-	      <div class="clearfix"></div>
-	    </div>
-	     <div id="hourChart">
-	     </div>
-	  </div>
-    </div>
-    
-      </div>
-		<div class="col-md-3 col-sm-12 col-xs-12">
-                      
-          </div>
-          <br />
-
-
-          <div class="row">
-            <div class="col-md-9 col-sm-9 col-xs-12">
-              <div class="x_panel">
-	        <div class="x_title">
-                  <h2>Top Rated Questions</h2>
-		  <div class="clearfix"></div>
-		</div>
-		      <div id="wizard_verticle" class="form_wizard wizard_verticle">
-			  <ul class="list-unstyled wizard_steps anchor" id="questions"></ul>
-			  <div class="stepContainer" id="questions_list"></div>
-		      </div>
-              </div>
-            </div>
-
-
-            <div class="col-md-3 col-sm-3 col-xs-12">
-	     <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                  <div class="x_panel">
-                    <div class="x_title">
-                      <h2>Visitors location <small>geo-presentation</small></h2>
-                      <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                      </ul>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                      <div class="dashboard-widget-content">
-                        <div class="col-md-4 hidden-small">
-                          <h2 class="line_30">125.7k Views from 60 countries</h2>
-
-                          <table class="countries_list">
-                            <tbody>
-                              <tr>
-                                <td>United States</td>
-                                <td class="fs15 fw700 text-right">33%</td>
-                              </tr>
-                              <tr>
-                                <td>France</td>
-                                <td class="fs15 fw700 text-right">27%</td>
-                              </tr>
-                              <tr>
-                                <td>Germany</td>
-                                <td class="fs15 fw700 text-right">16%</td>
-                              </tr>
-                              <tr>
-                                <td>Spain</td>
-                                <td class="fs15 fw700 text-right">11%</td>
-                              </tr>
-                              <tr>
-                                <td>Britain</td>
-                                <td class="fs15 fw700 text-right">10%</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div id="world-map-gdp" class="col-md-8 col-sm-12 col-xs-12" style="height:230px;"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-              <div class="row">  
-                <!-- start of weather widget -->
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                  
-<!-- -->
-                </div>
-                <!-- end of weather widget -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /page content -->
-
-      </div>
-    </div>
 
 
 
-    <!-- Flot -->
-    <script>
-      $(document).ready(function(e) {
-        var data1 = [
-          [gd(2012, 1, 1), 17],
-          [gd(2012, 1, 2), 74],
-          [gd(2012, 1, 3), 6],
-          [gd(2012, 1, 4), 39],
-          [gd(2012, 1, 5), 20],
-          [gd(2012, 1, 6), 85],
-          [gd(2012, 1, 7), 7]
-        ];
+        <!-- Flot -->
+        <script>
+            $(document).ready(function(e) {
+                var data1 = [
+                    [gd(2012, 1, 1), 17],
+                    [gd(2012, 1, 2), 74],
+                    [gd(2012, 1, 3), 6],
+                    [gd(2012, 1, 4), 39],
+                    [gd(2012, 1, 5), 20],
+                    [gd(2012, 1, 6), 85],
+                    [gd(2012, 1, 7), 7]
+                ];
 
-        var data2 = [
-          [gd(2012, 1, 1), 82],
-          [gd(2012, 1, 2), 23],
-          [gd(2012, 1, 3), 66],
-          [gd(2012, 1, 4), 9],
-          [gd(2012, 1, 5), 119],
-          [gd(2012, 1, 6), 6],
-          [gd(2012, 1, 7), 9]
-        ];
-        $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
-          data1, data2
-        ], {
-          series: {
-            lines: {
-              show: false,
-              fill: true
-            },
-            splines: {
-              show: true,
-              tension: 0.4,
-              lineWidth: 1,
-              fill: 0.4
-            },
-            points: {
-              radius: 0,
-              show: true
-            },
-            shadowSize: 2
-          },
-          grid: {
-            verticalLines: true,
-            hoverable: true,
-            clickable: true,
-            tickColor: "#d5d5d5",
-            borderWidth: 1,
-            color: '#fff'
-          },
-          colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
-          xaxis: {
-            tickColor: "rgba(51, 51, 51, 0.06)",
-            mode: "time",
-            tickSize: [1, "day"],
-            //tickLength: 10,
-            axisLabel: "Date",
-            axisLabelUseCanvas: true,
-            axisLabelFontSizePixels: 12,
-            axisLabelFontFamily: 'Verdana, Arial',
-            axisLabelPadding: 10
-          },
-          yaxis: {
-            ticks: 8,
-            tickColor: "rgba(51, 51, 51, 0.06)",
-          },
-          tooltip: false
-        });
+                var data2 = [
+                    [gd(2012, 1, 1), 82],
+                    [gd(2012, 1, 2), 23],
+                    [gd(2012, 1, 3), 66],
+                    [gd(2012, 1, 4), 9],
+                    [gd(2012, 1, 5), 119],
+                    [gd(2012, 1, 6), 6],
+                    [gd(2012, 1, 7), 9]
+                ];
+                $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
+                    data1, data2
+                ], {
+                    series: {
+                        lines: {
+                            show: false,
+                            fill: true
+                        },
+                        splines: {
+                            show: true,
+                            tension: 0.4,
+                            lineWidth: 1,
+                            fill: 0.4
+                        },
+                        points: {
+                            radius: 0,
+                            show: true
+                        },
+                        shadowSize: 2
+                    },
+                    grid: {
+                        verticalLines: true,
+                        hoverable: true,
+                        clickable: true,
+                        tickColor: "#d5d5d5",
+                        borderWidth: 1,
+                        color: '#fff'
+                    },
+                    colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
+                    xaxis: {
+                        tickColor: "rgba(51, 51, 51, 0.06)",
+                        mode: "time",
+                        tickSize: [1, "day"],
+                        //tickLength: 10,
+                        axisLabel: "Date",
+                        axisLabelUseCanvas: true,
+                        axisLabelFontSizePixels: 12,
+                        axisLabelFontFamily: 'Verdana, Arial',
+                        axisLabelPadding: 10
+                    },
+                    yaxis: {
+                        ticks: 8,
+                        tickColor: "rgba(51, 51, 51, 0.06)",
+                    },
+                    tooltip: false
+                });
 
-        function gd(year, month, day) {
-          return new Date(year, month - 1, day).getTime();
-        }
-      });
-    </script>
-    <!-- /Flot -->
+                function gd(year, month, day) {
+                    return new Date(year, month - 1, day).getTime();
+                }
+            });
+        </script>
+        <!-- /Flot -->
 
-    <!-- JQVMap -->
-    <script>
-      $(document).ready(function(){
-        $('#world-map-gdp').vectorMap({
-            map: 'world_en',
-            backgroundColor: null,
-            color: '#ffffff',
-            hoverOpacity: 0.7,
-            selectedColor: '#666666',
-            enableZoom: true,
-            showTooltip: true,
-            values: sample_data,
-            scaleColors: ['#E6F2F0', '#149B7E'],
-            normalizeFunction: 'polynomial'
-        });
-	$('#usa_map').vectorMap({
-            map: 'usa_en',
-            backgroundColor: null,
-            color: '#ffffff',
-            hoverOpacity: 0.7,
-            selectedColor: '#666666',
-            enableZoom: true,
-            showTooltip: true,
-            values: sample_data,
-            scaleColors: ['#E6F2F0', '#149B7E'],
-            normalizeFunction: 'polynomial'
-        }); 
-      });
-    </script>
-    <!-- /JQVMap -->
+        <!-- JQVMap -->
+        <script>
+            $(document).ready(function() {
+                $('#world-map-gdp').vectorMap({
+                    map: 'world_en',
+                    backgroundColor: null,
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#666666',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ['#E6F2F0', '#149B7E'],
+                    normalizeFunction: 'polynomial'
+                });
+                $('#usa_map').vectorMap({
+                    map: 'usa_en',
+                    backgroundColor: null,
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#666666',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ['#E6F2F0', '#149B7E'],
+                    normalizeFunction: 'polynomial'
+                });
+            });
+        </script>
+        <!-- /JQVMap -->
 
-    <!-- Skycons -->
-    <script>
-      $(document).ready(function() {
-        var icons = new Skycons({
-            "color": "#73879C"
-          }),
-          list = [
-            "clear-day", "clear-night", "partly-cloudy-day",
-            "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
-            "fog"
-          ],
-          i;
+        <!-- Skycons -->
+        <script>
+            $(document).ready(function() {
+                var icons = new Skycons({
+                        "color": "#73879C"
+                    }),
+                    list = [
+                        "clear-day", "clear-night", "partly-cloudy-day",
+                        "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                        "fog"
+                    ],
+                    i;
 
-        for (i = list.length; i--;)
-          icons.set(list[i], list[i]);
+                for (i = list.length; i--;)
+                    icons.set(list[i], list[i]);
 
-        icons.play();
-      });
-    </script>
-    <!-- /Skycons -->
-
-   
-    <!-- bootstrap-daterangepicker -->
-    <script>
-      $(document).ready(function() {
-
-        var cb = function(start, end, label) {
-          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        };
-
-        var optionSet1 = {
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment(),
-          minDate: '01/01/2012',
-          maxDate: '12/31/2015',
-          dateLimit: {
-            days: 60
-          },
-          showDropdowns: true,
-          showWeekNumbers: true,
-          timePicker: false,
-          timePickerIncrement: 1,
-          timePicker12Hour: true,
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          opens: 'left',
-          buttonClasses: ['btn btn-default'],
-          applyClass: 'btn-small btn-primary',
-          cancelClass: 'btn-small',
-          format: 'MM/DD/YYYY',
-          separator: ' to ',
-          locale: {
-            applyLabel: 'Submit',
-            cancelLabel: 'Clear',
-            fromLabel: 'From',
-            toLabel: 'To',
-            customRangeLabel: 'Custom',
-            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            firstDay: 1
-          }
-        };
-        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-        $('#reportrange').daterangepicker(optionSet1, cb);
-        $('#reportrange').on('show.daterangepicker', function() {
-          console.log("show event fired");
-        });
-        $('#reportrange').on('hide.daterangepicker', function() {
-          console.log("hide event fired");
-        });
-        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-        });
-        $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
-          console.log("cancel event fired");
-        });
-        $('#options1').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
-        });
-        $('#options2').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
-        });
-        $('#destroy').click(function() {
-          $('#reportrange').data('daterangepicker').remove();
-        });
-      });
-    </script>
-    <!-- /bootstrap-daterangepicker -->
-
-    <!-- gauge.js -->
-    <script>
-
-	function setQuestionsForTopic(topic) {
-		var panel = d3.select('#questions');
-		var questions_list = d3.select("#questions_list");
-		panel.html("");
-		questions_list.html("");    
-		d3.select(".actionBar").remove();
-
-		var question_count = 1;
-		for(var question in answers[topic])
-		{
-
-		    var question_number = "step-"+question_count+""+question_count;
-		    var select_class = "disabled";
-		    var display = "display:none";
-		    if(question_count == 1) {
-			select_class = "selected";
-			display = "display:block";
-		    }
-		    panel.append("li")
-			    .append("a")
-				.attr("href", "#"+question_number)
-			    .append("span")
-				.attr("class", "step_no")
-				.html(question_count);
-
-		    var question_element = questions_list.append("div")
-							    .attr("id", question_number)
-							    .attr("class", "cotent")
-							    .attr("style", display);
-		    question_element.append("h2")
-				        .attr("class", "stepTitle")
-				        .html(question);
-		    var i = 0;
-		    for(var ans in answers[topic][question]) {
-			question_element.append("p")
-					    .html("<b>Answer "+(++i)+"</b>: "+answers[topic][question][ans]);
-		    }
-		    if(question_count == 5) {
-			break;
-		    }
-		    question_count = question_count + 1;
-		}
-
-		return question_count-1;
-	}
-//	var topic_question_stats = [];
-	var opts = {
-          lines: 12,
-          angle: 0,
-          lineWidth: 0.4,
-          pointer: {
-              length: 0.75,
-              strokeWidth: 0.042,
-              color: '#1D212A'
-          },
-          limitMax: 'false',
-          colorStart: '#1ABC9C',
-          colorStop: '#1ABC9C',
-          strokeColor: '#F0F3F3',
-          generateGradient: true
-      };
-	var target = document.getElementById('foo'),
-          gauge = new Gauge(target).setOptions(opts);
-	gauge.maxValue = 100;
-	      gauge.animationSpeed = 32;
-      var default_topic = "Abdominal Obesity";
-      var posts = d3.select("#posts");
-
-      
-	 gauge.set(topic_question_stats[default_topic]["answered"]);
-	 gauge.setTextField(document.getElementById("gauge-text"));
-	 posts.html(topic_question_stats[default_topic]['total']);
-	 setQuestionsForTopic(default_topic);
-
-    loadTimeline(default_topic);
-    showWordBubble(default_topic);
-	
-    </script>
-    <!-- /gauge.js -->
-
-    <!-- Doughnut Chart -->
-    <script>
-      var member_helpful_chart;
-	  var options = {
-          legend: true,
-          responsive: false,
-		  tooltip: true
-        };
-	  function member_helper_chart_draw(topic) {
-			d3.select("#canvas1-parent").html("");
-			d3.select("#canvas1-legend").html("");
-			d3.select("#canvas1-parent").append("canvas")
-							.attr("id", "canvas1")
-							.attr("height", "200")
-							.attr("width", "200")
-							.attr("style", "margin: 15px 10px 10px 0");
-
-			topic_members = helpers[topic];
-		    member_helpful_chart = new Chart(document.getElementById("canvas1"), {
-		      type: 'doughnut',
-		      tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-		      data: {
-		        labels: topic_members["members"],
-		        datasets: [{
-		          data: topic_members["memberhelpfulvotes"],
-		          backgroundColor: [
-		            "#BDC3C7",
-		            "#9B59B6",
-		            "#E74C3C",
-		            "#26B99A",
-		            "#3498DB",
-					"#0DC377",
-		            "#FB5936",
-		            "#474CDC",
-		            "#C6B91A",
-		            "#B4982B"
-		          ],
-		          hoverBackgroundColor: [
-		            "#CFD4D8",
-		            "#B370CF",
-		            "#E95E4F",
-		            "#36CAAB",
-		            "#49A9EA"
-		          ]
-		        }]
-		      },
-		      options: options
-		    });
-		document.getElementById('canvas1-legend').innerHTML = member_helpful_chart.generateLegend();
-	  }
-      $(document).ready(function(){
-		member_helper_chart_draw(default_topic);
-      });
-    </script>
-    <!-- /Doughnut Chart -->
- 
-    <!-- Topic Graph -->
-	 <script>
-
-		var counter = 1;
-			
-			  var visualization = d3plus.viz()
-			    .container("#viz")
-			    .type("rings")
-			    .edges({
-			      "size": "strength",
-			      "value": connections
-			    })
-			    .focus({ "value": default_topic, "tooltip": false} ,
-					function(d) {
-				
-						setQuestionsForTopic(d);
-				                showWordBubble(d);
-
-					    gauge.set(topic_question_stats[d]['answered']);
-					    gauge.setTextField(document.getElementById("gauge-text"));
-					    gauge.render();
-					    
-					    swreset("#wizard_verticle"); 
-					    // Time line update
-						member_helper_chart_draw(d);
-					    loadTimeline(d);
-
-        $('.buttonNext').addClass('btn btn-success');
-        $('.buttonPrevious').addClass('btn btn-primary');
-					    posts.html(topic_question_stats[d]['total']);
-					}
+                icons.play();
+            });
+        </script>
+        <!-- /Skycons -->
 
 
-			)
-			.ui({
-				"position" : "top",
-				"align" : "center",
-				"value" : [	{
-					"method": "focus",
-					"type": "drop",
-					"label": "Disease",
-					"value": filterTopics
-				}]
-			})
-		    .height(740)
-		    .width({
-			"small" : 640
-		    })
-		    .draw();
-	</script>
-    <!-- /Topic Graph -->
+        <!-- bootstrap-daterangepicker -->
+        <script>
+            $(document).ready(function() {
 
-    <!-- jQuery Smart Wizard -->
-    <script>
-      $(document).ready(function() {
-        $('#wizard_verticle').smartWizard({
-          transitionEffect: 'slide'
-        });
+                var cb = function(start, end, label) {
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                };
 
-        $('.buttonNext').addClass('btn btn-success');
-        $('.buttonPrevious').addClass('btn btn-primary');
-      });
- 
-    </script>
-    <!-- /jQuery Smart Wizard -->
-  </body>
+                var optionSet1 = {
+                    startDate: moment().subtract(29, 'days'),
+                    endDate: moment(),
+                    minDate: '01/01/2012',
+                    maxDate: '12/31/2015',
+                    dateLimit: {
+                        days: 60
+                    },
+                    showDropdowns: true,
+                    showWeekNumbers: true,
+                    timePicker: false,
+                    timePickerIncrement: 1,
+                    timePicker12Hour: true,
+                    ranges: {
+                        'Today': [moment(), moment()],
+                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                        'This Month': [moment().startOf('month'), moment().endOf('month')],
+                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    },
+                    opens: 'left',
+                    buttonClasses: ['btn btn-default'],
+                    applyClass: 'btn-small btn-primary',
+                    cancelClass: 'btn-small',
+                    format: 'MM/DD/YYYY',
+                    separator: ' to ',
+                    locale: {
+                        applyLabel: 'Submit',
+                        cancelLabel: 'Clear',
+                        fromLabel: 'From',
+                        toLabel: 'To',
+                        customRangeLabel: 'Custom',
+                        daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                        monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                        firstDay: 1
+                    }
+                };
+                $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+                $('#reportrange').daterangepicker(optionSet1, cb);
+                $('#reportrange').on('show.daterangepicker', function() {
+                    console.log("show event fired");
+                });
+                $('#reportrange').on('hide.daterangepicker', function() {
+                    console.log("hide event fired");
+                });
+                $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+                    console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+                });
+                $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+                    console.log("cancel event fired");
+                });
+                $('#options1').click(function() {
+                    $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+                });
+                $('#options2').click(function() {
+                    $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+                });
+                $('#destroy').click(function() {
+                    $('#reportrange').data('daterangepicker').remove();
+                });
+            });
+        </script>
+        <!-- /bootstrap-daterangepicker -->
+
+        <!-- gauge.js -->
+        <script>
+            function setQuestionsForTopic(topic) {
+                var panel = d3.select('#questions');
+                var questions_list = d3.select("#questions_list");
+                panel.html("");
+                questions_list.html("");
+                d3.select(".actionBar").remove();
+
+                var question_count = 1;
+                for (var question in answers[topic]) {
+
+                    var question_number = "step-" + question_count + "" + question_count;
+                    var select_class = "disabled";
+                    var display = "display:none";
+                    if (question_count == 1) {
+                        select_class = "selected";
+                        display = "display:block";
+                    }
+                    panel.append("li")
+                        .append("a")
+                        .attr("href", "#" + question_number)
+                        .append("span")
+                        .attr("class", "step_no")
+                        .html(question_count);
+
+                    var question_element = questions_list.append("div")
+                        .attr("id", question_number)
+                        .attr("class", "cotent")
+                        .attr("style", display);
+                    question_element.append("h2")
+                        .attr("class", "stepTitle")
+                        .html(question);
+                    var i = 0;
+                    for (var ans in answers[topic][question]) {
+                        question_element.append("p")
+                            .html("<b>Answer " + (++i) + "</b>: " + answers[topic][question][ans]);
+                    }
+                    if (question_count == 5) {
+                        break;
+                    }
+                    question_count = question_count + 1;
+                }
+
+                return question_count - 1;
+            }
+            //	var topic_question_stats = [];
+            var opts = {
+                lines: 12,
+                angle: 0,
+                lineWidth: 0.4,
+                pointer: {
+                    length: 0.75,
+                    strokeWidth: 0.042,
+                    color: '#1D212A'
+                },
+                limitMax: 'false',
+                colorStart: '#1ABC9C',
+                colorStop: '#1ABC9C',
+                strokeColor: '#F0F3F3',
+                generateGradient: true
+            };
+            var target = document.getElementById('foo'),
+                gauge = new Gauge(target).setOptions(opts);
+            gauge.maxValue = 100;
+            gauge.animationSpeed = 32;
+            var default_topic = "Abdominal Obesity";
+            var posts = d3.select("#posts");
+
+
+            gauge.set(topic_question_stats[default_topic]["answered"]);
+            gauge.setTextField(document.getElementById("gauge-text"));
+            posts.html(topic_question_stats[default_topic]['total']);
+            setQuestionsForTopic(default_topic);
+
+            loadTimeline(default_topic);
+            showWordBubble(default_topic);
+        </script>
+        <!-- /gauge.js -->
+
+        <!-- Doughnut Chart -->
+        <script>
+            var member_helpful_chart;
+            var options = {
+                legend: true,
+                responsive: false,
+                tooltip: true
+            };
+
+            function member_helper_chart_draw(topic) {
+                d3.select("#canvas1-parent").html("");
+                d3.select("#canvas1-legend").html("");
+                d3.select("#canvas1-parent").append("canvas")
+                    .attr("id", "canvas1")
+                    .attr("height", "200")
+                    .attr("width", "200")
+                    .attr("style", "margin: 15px 10px 10px 0");
+
+                topic_members = helpers[topic];
+                member_helpful_chart = new Chart(document.getElementById("canvas1"), {
+                    type: 'doughnut',
+                    tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+                    data: {
+                        labels: topic_members["members"],
+                        datasets: [{
+                            data: topic_members["memberhelpfulvotes"],
+                            backgroundColor: [
+                                "#BDC3C7",
+                                "#9B59B6",
+                                "#E74C3C",
+                                "#26B99A",
+                                "#3498DB",
+                                "#0DC377",
+                                "#FB5936",
+                                "#474CDC",
+                                "#C6B91A",
+                                "#B4982B"
+                            ],
+                            hoverBackgroundColor: [
+                                "#CFD4D8",
+                                "#B370CF",
+                                "#E95E4F",
+                                "#36CAAB",
+                                "#49A9EA"
+                            ]
+                        }]
+                    },
+                    options: options
+                });
+                document.getElementById('canvas1-legend').innerHTML = member_helpful_chart.generateLegend();
+            }
+            $(document).ready(function() {
+                member_helper_chart_draw(default_topic);
+            });
+        </script>
+        <!-- /Doughnut Chart -->
+
+        <!-- Topic Graph -->
+        <script>
+            var counter = 1;
+
+            var visualization = d3plus.viz()
+                .container("#viz")
+                .type("rings")
+                .edges({
+                    "size": "strength",
+                    "value": connections
+                })
+                .focus({
+                        "value": default_topic,
+                        "tooltip": false
+                    },
+                    function(d) {
+
+                        setQuestionsForTopic(d);
+                        showWordBubble(d);
+
+                        gauge.set(topic_question_stats[d]['answered']);
+                        gauge.setTextField(document.getElementById("gauge-text"));
+                        gauge.render();
+
+                        swreset("#wizard_verticle");
+                        // Time line update
+                        member_helper_chart_draw(d);
+                        loadTimeline(d);
+
+                        $('.buttonNext').addClass('btn btn-success');
+                        $('.buttonPrevious').addClass('btn btn-primary');
+                        posts.html(topic_question_stats[d]['total']);
+                    }
+
+
+                )
+                .ui({
+                    "position": "top",
+                    "align": "center",
+                    "value": [{
+                        "method": "focus",
+                        "type": "drop",
+                        "label": "Disease",
+                        "value": filterTopics
+                    }]
+                })
+                .height(740)
+                .width({
+                    "small": 640
+                })
+                .draw();
+        </script>
+        <!-- /Topic Graph -->
+
+        <!-- jQuery Smart Wizard -->
+        <script>
+            $(document).ready(function() {
+                $('#wizard_verticle').smartWizard({
+                    transitionEffect: 'slide'
+                });
+
+                $('.buttonNext').addClass('btn btn-success');
+                $('.buttonPrevious').addClass('btn btn-primary');
+            });
+        </script>
+        <!-- /jQuery Smart Wizard -->
+</body>
+
 </html>
