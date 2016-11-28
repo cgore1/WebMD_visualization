@@ -6,7 +6,7 @@ var width = $("#wordbubble").outerWidth(),
     height = $("#wordbubble").outerHeight(),
     padding = 1.5, // separation between same-color nodes
     clusterPadding = 6, // separation between different-color nodes
-    maxRadius = 25;
+    maxRadius = 30;
 
 if(!topic)
   return;
@@ -64,7 +64,7 @@ var node = svg.selectAll("circle")
 //addcircle to the group
 node.append("circle")
     .style("fill", function (d) {
-    return color(3);
+    return "#26b99a";
 }).attr("r", function(d){return d.radius})
 //add text to the group
 node.append("text")
