@@ -58,6 +58,7 @@
     <script src="data/monthData.js"></script>
     <script src="data/tfidfData.js"></script>
     <script src="data/topic_members.js"></script>
+    <script src="data/topic_states.js"></script>
     <!-- JQVMap -->
     <script src="js/jquery.vmap.js"></script>
     <script src="js/jquery.vmap.world.js"></script>
@@ -108,8 +109,8 @@
                                 <div class="input-group">
                                     <input type="text" class="form-control" placeholder="Find meaning for a term">
                                     <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
+                                      <button class="btn btn-default" type="button">Go!</button>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -637,32 +638,6 @@
 
         <!-- JQVMap -->
         <script>
-            $(document).ready(function() {
-                $('#world-map-gdp').vectorMap({
-                    map: 'world_en',
-                    backgroundColor: null,
-                    color: '#ffffff',
-                    hoverOpacity: 0.7,
-                    selectedColor: '#666666',
-                    enableZoom: true,
-                    showTooltip: true,
-                    values: sample_data,
-                    scaleColors: ['#E6F2F0', '#149B7E'],
-                    normalizeFunction: 'polynomial'
-                });
-                $('#usa_map').vectorMap({
-                    map: 'usa_en',
-                    backgroundColor: null,
-                    color: '#ffffff',
-                    hoverOpacity: 0.7,
-                    selectedColor: '#666666',
-                    enableZoom: true,
-                    showTooltip: true,
-                    values: sample_data,
-                    scaleColors: ['#E6F2F0', '#149B7E'],
-                    normalizeFunction: 'polynomial'
-                });
-            });
         </script>
         <!-- /JQVMap -->
 
@@ -763,6 +738,22 @@
 
         <!-- gauge.js -->
         <script>
+            function setStates(state) {
+                d3.select('#usa_map').html("");
+                $('#usa_map').vectorMap({
+                    map: 'usa_en',
+                    backgroundColor: null,
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#666666',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: topic_states[state],
+                    scaleColors: ['#26b99a', '#556B2F'],
+                    normalizeFunction: 'polynomial'
+                });
+            }
+
             function setQuestionsForTopic(topic) {
                 var panel = d3.select('#questions');
                 var questions_list = d3.select("#questions_list");
@@ -838,6 +829,7 @@
 
             loadTimeline(default_topic);
             showWordBubble(default_topic);
+            setStates(default_topic);
         </script>
         <!-- /gauge.js -->
 
@@ -923,12 +915,13 @@
                         gauge.render();
 
                         swreset("#wizard_verticle");
+                        $('.buttonNext').addClass('btn btn-success');
+                        $('.buttonPrevious').addClass('btn btn-primary');
                         // Time line update
                         member_helper_chart_draw(d);
                         loadTimeline(d);
+                        setStates(d[0]);
 
-                        $('.buttonNext').addClass('btn btn-success');
-                        $('.buttonPrevious').addClass('btn btn-primary');
                         posts.html(topic_question_stats[d]['total']);
                     }
 
