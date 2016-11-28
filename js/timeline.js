@@ -1,7 +1,7 @@
 function loadTimeline(topic)
 {
 //$(document).ready(function() {
-   // month 
+   // month
       d3.select("#monthChart").html('');
         var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
           "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
@@ -29,8 +29,8 @@ function loadTimeline(topic)
           xkey: 'period',
           hideHover: 'auto',
           barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-          ykeys: ['value', 'sorned'],
-          labels: ['value', 'SORN'],
+          ykeys: ['value'],
+          labels: ['value'],
           xLabelAngle: 60,
           resize: true
         });
@@ -42,9 +42,9 @@ function loadTimeline(topic)
 
 
         // draw hour
-  
+
         d3.select("#hourChart").html('');
-        
+
         if(!topic)
           return;
 
