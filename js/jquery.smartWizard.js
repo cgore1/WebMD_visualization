@@ -189,8 +189,7 @@ function SmartWizard(target, options) {
                 }
             }
         }
-				console.log(selStep);
-				console.log($this);
+				
         $this.elmStepContainer.height(700);
         var prevCurStepIdx = $this.curStepIdx;
         $this.curStepIdx =  stepIdx;

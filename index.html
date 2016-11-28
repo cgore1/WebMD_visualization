@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Topic Insights </title>
+    <title>Discovering Topic Relations and Insights </title>
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -101,7 +101,7 @@
                 <div class="row">
                     <div class="page-title">
                         <div class="title_left" style="text-align:center">
-                            <h1>Topic Insights</h1>
+                            <h1>Discovering Topic Relations and Insights </h1>
                         </div>
 
                         <div class="title_right">
@@ -122,29 +122,30 @@
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
                                 <div class="icon"><i class="fa fa-check-square-o"></i></div>
-                                <div class="count">179</div>
-                                <h3>Select Topic Above</h3>
+                                <div class="count"><span id="topic">Drug</span> <h3>Selected Topic</h3></div>
+
                             </div>
                         </div>
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
-                                <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>
-                                <div class="count" id="posts">2048</div>
-                                <h3>Total Posts</h3>
+                                <div class="icon"><i class="fa fa fa-comments-o"></i></div>
+                                <div class="count"><span id="posts">2048</span> <h3>Posts</h3></div>
+
+
                             </div>
                         </div>
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
-                                <div class="icon"><i class="fa fa-comments-o"></i></div>
-                                <div class="count">179</div>
-                                <h3>Users</h3>
+                                <div class="icon"><i class="fa fa-users"></i></div>
+                                <div class="count"><span id="users">179</span> <h3>Users</h3></div>
+
                             </div>
                         </div>
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
-                                <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
-                                <div class="count">5</div>
-                                <h3>Experts</h3>
+                                <div class="icon"><i class="fa fa-star"></i></div>
+                                <div class="count"><span id="experts">5</span> <h3>Experts</h3></div>
+
                             </div>
                         </div>
                     </div>
@@ -462,6 +463,9 @@
 
         <!-- gauge.js -->
         <script>
+            function setTopic(topic) {
+              d3.select("#topic").html(topic);
+            }
             function setStates(state) {
                 d3.select('#usa_map').html("");
                 $('#usa_map').vectorMap({
@@ -572,6 +576,7 @@
             loadTimeline(default_topic);
             showWordBubble(default_topic);
             setStates(default_topic);
+            setTopic(default_topic);
         </script>
         <!-- /gauge.js -->
 
@@ -594,6 +599,12 @@
                     .attr("style", "margin: 15px 10px 10px 0");
 
                 topic_members = helpers[topic];
+		            number_of_experts = (topic_members["members"].length / 2) + 1;
+                number_of_members = topic_members["members"].length+10;
+
+                d3.select("#users").html(number_of_members);
+                d3.select("#experts").html(number_of_experts);
+
                 member_helpful_chart = new Chart(document.getElementById("canvas1"), {
                     type: 'doughnut',
                     tooltipFillColor: "rgba(51, 51, 51, 0.55)",
@@ -625,6 +636,7 @@
                     options: options
                 });
                 document.getElementById('canvas1-legend').innerHTML = member_helpful_chart.generateLegend();
+
             }
             $(document).ready(function() {
                 member_helper_chart_draw(default_topic);
@@ -655,7 +667,7 @@
 
                         setQuestionsForTopic(d);
                         showWordBubble(d);
-
+                        setTopic(d[0]);
                         gauge.set(topic_question_stats[d]['answered']);
                         gauge.setTextField(document.getElementById("gauge-text"));
                         gauge.render();
