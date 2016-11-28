@@ -121,15 +121,14 @@
                     <div class="row top_tiles">
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
-                                <div class="icon"><i class="fa fa-check-square-o"></i></div>
-                                <div class="count"><span id="topic">Drug</span> <h3>Selected Topic</h3></div>
+                                <div class="count"><span id="topic">Drug</span> <h3>(Topic)</h3></div>
 
                             </div>
                         </div>
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
                                 <div class="icon"><i class="fa fa fa-comments-o"></i></div>
-                                <div class="count"><span id="posts">2048</span> <h3>Posts</h3></div>
+                                <div class="count"><span id="posts">2048</span> <h3>Post(s)</h3></div>
 
 
                             </div>
@@ -137,14 +136,14 @@
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
                                 <div class="icon"><i class="fa fa-users"></i></div>
-                                <div class="count"><span id="users">179</span> <h3>Users</h3></div>
+                                <div class="count"><span id="users">179</span> <h3>User(s)</h3></div>
 
                             </div>
                         </div>
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
                                 <div class="icon"><i class="fa fa-star"></i></div>
-                                <div class="count"><span id="experts">5</span> <h3>Experts</h3></div>
+                                <div class="count"><span id="experts">5</span> <h3>Expert(s)</h3></div>
 
                             </div>
                         </div>
@@ -180,7 +179,7 @@
                                     <h2>Word bubble</h2>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div id="wordbubble">
+                                <div id="wordbubble" style="width:100%; height:80%;">
                                 </div>
                             </div>
                         </div>
@@ -599,7 +598,7 @@
                     .attr("style", "margin: 15px 10px 10px 0");
 
                 topic_members = helpers[topic];
-		            number_of_experts = (topic_members["members"].length / 2) + 1;
+		            number_of_experts = Math.ceil(topic_members["members"].length / 2) + 1;
                 number_of_members = topic_members["members"].length+10;
 
                 d3.select("#users").html(number_of_members);

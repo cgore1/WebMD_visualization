@@ -1,11 +1,12 @@
 function showWordBubble(topic)
 {
 $(document).ready(function() {
-var width = 345,
-    height = 400,
+console.log($("#wordbubble").innerHeight())
+var width = $("#wordbubble").outerWidth(),
+    height = $("#wordbubble").outerHeight(),
     padding = 1.5, // separation between same-color nodes
     clusterPadding = 6, // separation between different-color nodes
-    maxRadius = 50;
+    maxRadius = 25;
 
 if(!topic)
   return;
@@ -52,6 +53,7 @@ var force = d3.layout.force()
     .on("tick", tick)
     .start();
 d3.select("#wordbubble").html('');
+
 var svg = d3.select("#wordbubble").append("svg")
     .attr("width", width)
     .attr("height", height);
@@ -64,12 +66,12 @@ node.append("circle")
     .style("fill", function (d) {
     return color(3);
 }).attr("r", function(d){return d.radius})
-//add text to the group    
+//add text to the group
 node.append("text")
     .text(function (d) {
     return d.name;
 })
-.attr("dx", -10)
+.attr("dx", 0)
     .attr("dy", ".35em")
     .text(function (d) {
     return d.name
