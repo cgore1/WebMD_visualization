@@ -509,9 +509,11 @@
                         display = "display:block";
                     }
 
-		    question_element.append("h2")
-                        .attr("class", "stepTitle")
-                        .html(question);
+		                question_element.append("div")
+                                      .attr("class", "clearfix")
+                                    .append("h2")
+                                      .attr("class", "stepTitle")
+                                      .html(question);
                     var i = 0;
                     for (var ans in answers[topic][question]) {
                         question_element.append("p")
