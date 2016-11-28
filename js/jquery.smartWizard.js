@@ -189,7 +189,9 @@ function SmartWizard(target, options) {
                 }
             }
         }
-        $this.elmStepContainer.height(_step($this, selStep).outerHeight());
+				console.log(selStep);
+				console.log($this);
+        $this.elmStepContainer.height(700);
         var prevCurStepIdx = $this.curStepIdx;
         $this.curStepIdx =  stepIdx;
         if ($this.options.transitionEffect == 'slide'){
