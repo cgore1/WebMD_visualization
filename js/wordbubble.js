@@ -1,7 +1,7 @@
 function showWordBubble(topic)
 {
 $(document).ready(function() {
-console.log($("#wordbubble").innerHeight())
+
 var width = $("#wordbubble").outerWidth(),
     height = $("#wordbubble").outerHeight(),
     padding = 1.5, // separation between same-color nodes
@@ -64,10 +64,10 @@ var node = svg.selectAll("circle")
 node.append("circle")
     .style("fill", function (d) {
     return "#26b99a";
-}).attr("r", function(d){return d.radius}).on("click", 
-function(d) {
-    d3.select("#wordmeaning").html( '"' + d.name + '" : ' + data[d.name][0]);
-});
+}).attr("r", function(d){return d.radius}).on("click",
+        function(d) {
+            d3.select("#wordmeaning").html( '"' + d.name + '" : ' + data[d.name][0]);
+        });
 //add text to the group
 node.append("text")
     .text(function (d) {
@@ -77,7 +77,10 @@ node.append("text")
     .attr("dy", ".35em")
     .text(function (d) {
     return d.name
-});
+}).on("click",
+        function(d) {
+            d3.select("#wordmeaning").html( '"' + d.name + '" : ' + data[d.name][0]);
+        });
 
 
 function tick(e) {

@@ -30,7 +30,7 @@ function loadTimeline(topic)
           hideHover: 'auto',
           barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
           ykeys: ['value'],
-          labels: ['value'],
+          labels: ['# Posts'],
           xLabelAngle: 60,
           resize: true
         });
@@ -68,8 +68,8 @@ function loadTimeline(topic)
           xkey: 'period',
           hideHover: 'auto',
           barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-          ykeys: ['value', 'sorned'],
-          labels: ['value', 'SORN'],
+          ykeys: ['value'],
+          labels: ['# Posts'],
           xLabelAngle: 60,
           resize: true
         });
