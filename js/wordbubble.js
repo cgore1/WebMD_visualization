@@ -53,7 +53,6 @@ var force = d3.layout.force()
     .on("tick", tick)
     .start();
 d3.select("#wordbubble").html('');
-
 var svg = d3.select("#wordbubble").append("svg")
     .attr("width", width)
     .attr("height", height);
@@ -65,7 +64,10 @@ var node = svg.selectAll("circle")
 node.append("circle")
     .style("fill", function (d) {
     return "#26b99a";
-}).attr("r", function(d){return d.radius})
+}).attr("r", function(d){return d.radius}).on("click", 
+function(d) {
+    d3.select("#wordmeaning").html(data[d.name][0]);
+});
 //add text to the group
 node.append("text")
     .text(function (d) {
@@ -76,10 +78,6 @@ node.append("text")
     .text(function (d) {
     return d.name
 });
-
-
-
-
 
 
 function tick(e) {
