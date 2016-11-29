@@ -356,7 +356,7 @@ JQVMap.maps = {};
       showTooltip: true,
       borderColor: '#818181',
       borderWidth: 1,
-      borderOpacity: 0.25,
+      borderOpacity: 0.75,
       selectedRegions: null,
       multiSelectRegion: false
     }, map = this.data('mapObject');
