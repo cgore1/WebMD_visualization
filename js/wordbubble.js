@@ -66,7 +66,7 @@ node.append("circle")
     return "#26b99a";
 }).attr("r", function(d){return d.radius}).on("click", 
 function(d) {
-    d3.select("#wordmeaning").html(data[d.name][0]);
+    d3.select("#wordmeaning").html( '"' + d.name + '" : ' + data[d.name][0]);
 });
 //add text to the group
 node.append("text")
