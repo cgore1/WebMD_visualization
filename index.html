@@ -484,8 +484,7 @@
               gauge.maxValue = topic_stats["total"];
               gauge.animationSpeed = 32;
 
-              var posts = d3.select("#posts");
-              posts.html(topic_stats["total"]);
+              d3.select("#posts").html(topic_stats["total"]);
               d3.select("#goal-text").html(topic_stats["total"]);
 
               gauge.set(topic_stats["answered"]);
@@ -685,8 +684,6 @@
                         member_helper_chart_draw(d);
                         loadTimeline(d);
                         setStates(d[0]);
-
-                        posts.html(topic_question_stats[d]['total']);
                     }
 
 
