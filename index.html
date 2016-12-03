@@ -167,8 +167,8 @@
                                             <h4>% Answered Questions</h4>
                                             <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
                                             <div class="goal-wrapper">
-                                                <span id="gauge-text" class="gauge-value pull-left">0</span>
-                                                <span id="goal-text" class="goal-value pull-right">100</span>
+                                                <span id="gauge-text" class="gauge-value pull-left"></span>
+                                                <span id="goal-text" class="goal-value pull-right"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -461,9 +461,42 @@
 
         <!-- gauge.js -->
         <script>
+
+            function setGauge(topic) {
+              var opts = {
+                  lines: 12,
+                  angle: 0,
+                  lineWidth: 0.4,
+                  pointer: {
+                      length: 0.75,
+                      strokeWidth: 0.042,
+                      color: '#1D212A'
+                  },
+                  limitMax: 'false',
+                  colorStart: '#1ABC9C',
+                  colorStop: '#1ABC9C',
+                  strokeColor: '#F0F3F3',
+                  generateGradient: true
+              };
+  	          var topic_stats = topic_question_stats[topic];
+              var target = document.getElementById('foo'),
+              gauge = new Gauge(target).setOptions(opts);
+              gauge.maxValue = topic_stats["total"];
+              gauge.animationSpeed = 32;
+
+              var posts = d3.select("#posts");
+              posts.html(topic_stats["total"]);
+              d3.select("#goal-text").html(topic_stats["total"]);
+
+              gauge.set(topic_stats["answered"]);
+              gauge.setTextField(document.getElementById("gauge-text"));
+              gauge.render();
+            }
+
             function setTopic(topic) {
               d3.select("#topic").html(topic);
             }
+
             function setStates(state) {
                 d3.select('#usa_map').html("");
                 $('#usa_map').vectorMap({
@@ -491,16 +524,16 @@
                 var question_count = 1;
 
                 var question_number = "step-" + question_count + "" + question_count;
-		var question_element = questions_list.append("div")
-		    .attr("id", question_number)
-		    .attr("class", "content")
-		    .attr("style", display);
-		panel.append("li")
-		    .append("a")
-		    .attr("href", "#" + question_number)
-		    .append("span")
-		    .attr("class", "step_no")
-		    .html(question_count);
+            		var question_element = questions_list.append("div")
+            		    .attr("id", question_number)
+            		    .attr("class", "content")
+            		    .attr("style", display);
+            		panel.append("li")
+            		    .append("a")
+            		    .attr("href", "#" + question_number)
+            		    .append("span")
+            		    .attr("class", "step_no")
+            		    .html(question_count);
 
                 for (var question in answers[topic]) {
 
@@ -543,38 +576,15 @@
 
             }
             //	var topic_question_stats = [];
-            var opts = {
-                lines: 12,
-                angle: 0,
-                lineWidth: 0.4,
-                pointer: {
-                    length: 0.75,
-                    strokeWidth: 0.042,
-                    color: '#1D212A'
-                },
-                limitMax: 'false',
-                colorStart: '#1ABC9C',
-                colorStop: '#1ABC9C',
-                strokeColor: '#F0F3F3',
-                generateGradient: true
-            };
-            var target = document.getElementById('foo'),
-                gauge = new Gauge(target).setOptions(opts);
-            gauge.maxValue = 100;
-            gauge.animationSpeed = 32;
+
             var default_topic = "Drug";
-            var posts = d3.select("#posts");
-
-
-            gauge.set(topic_question_stats[default_topic]["answered"]);
-            gauge.setTextField(document.getElementById("gauge-text"));
-            posts.html(topic_question_stats[default_topic]['total']);
             setQuestionsForTopic(default_topic);
 
             loadTimeline(default_topic);
             showWordBubble(default_topic);
             setStates(default_topic);
             setTopic(default_topic);
+            setGauge(default_topic);
         </script>
         <!-- /gauge.js -->
 
@@ -666,9 +676,7 @@
                         setQuestionsForTopic(d);
                         showWordBubble(d);
                         setTopic(d[0]);
-                        gauge.set(topic_question_stats[d]['answered']);
-                        gauge.setTextField(document.getElementById("gauge-text"));
-                        gauge.render();
+			                  setGauge(d[0]);
 
                         swreset("#wizard_verticle");
                         $('.buttonNext').addClass('btn btn-success');
