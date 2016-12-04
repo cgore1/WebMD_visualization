@@ -161,34 +161,38 @@
                         </div>
 
                         <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div class="row">
-                                <div class="x_panel tile fixed_height_320">
-                                    <div class="x_title">
-                                        <h2> Topic Info</h2>
-                                        <div class="clearfix"></div>
+                          <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel tile fixed_height_320">
+                                <div class="x_title">
+                                    <h2> Topic Info</h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 col-sm-12 col-xs-12">
+                                        <div class="left" id="canvas1-parent">
+                                            <canvas id="canvas1" height="250" width="600" style="margin: 15px"></canvas>
+                                        </div>
+                                        <div id="canvas1-legend" class="chart-legend"></div>
                                     </div>
-                                    <div class="x_content">
-
-                                        <div class="dashboard-widget-content">
-                                            <div class="sidebar-widget sidebar-widget" style="width:30%;">
-                                                <h4>% Questions Answered by Experts</h4>
-                                                <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
-                                                <div class="goal-wrapper">
-                                                    <span id="gauge-text" class="gauge-value pull-left"></span>
-                                                    <span id="goal-text" class="goal-value pull-right"></span>
+                                    <div class="col-md-4 col-sm-12 col-xs-12">
+                                        <div class="x_content">
+                                            <div class="dashboard-widget-content">
+                                                <div class="sidebar-widget sidebar-widget" style="width:90%;">
+                                                    <h4>% Questions Answered by Experts</h4>
+                                                    <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
+                                                    <div class="goal-wrapper">
+                                                        <span id="gauge-text" class="gauge-value pull-left"></span>
+                                                        <span id="goal-text" class="goal-value pull-right"></span>
+                                                    </div>
                                                 </div>
-                                            </div>
-
-                                            <div class="left" id="canvas1-parent">
-                                                <canvas id="canvas1" height="250" width="400" style="margin: 15px auto"></canvas>
-                                            </div>
-                                            <div id="canvas1-legend" class="chart-legend"></div>
-                                            <div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                          </div>
+                        </div>
                             <div class="row">
                                 <div class="col-md-6 col-sm-12 col-xs-12">
                                     <div class="x_panel tile fixed_height_320">
@@ -588,7 +592,7 @@
                 .attr("id", "canvas1")
                 .attr("height", "200")
                 .attr("width", "200")
-                .attr("style", "margin: 15px 10px 10px 0");
+                .attr("style", "margin: 15px 15px 15px 30px");
 
             topic_members = helpers[topic];
             number_of_experts = Math.ceil(topic_members["members"].length / 2) + 1;
@@ -605,8 +609,8 @@
                     datasets: [{
                         data: topic_members["memberhelpfulvotes"],
                         backgroundColor: [
-                            "#BDC3C7",
-                            "#9B59B6",
+                            "#26b99a",
+                            "#0b372e",
                             "#E74C3C",
                             "#26B99A",
                             "#3498DB",
@@ -617,7 +621,7 @@
                             "#B4982B"
                         ],
                         hoverBackgroundColor: [
-                            "#CFD4D8",
+                            "#37caab",
                             "#B370CF",
                             "#E95E4F",
                             "#36CAAB",
@@ -689,10 +693,10 @@
             .width({
                 "small": 640
             })
-            .color({
+/*            .color({
                 "focus": "#26b99a",
                 "scale": "category20c"
-            })
+            })*/
             .draw();
     </script>
     <!-- /Topic Graph -->

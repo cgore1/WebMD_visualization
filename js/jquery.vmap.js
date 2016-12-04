@@ -324,7 +324,7 @@ JQVMap.maps = {};
     enableZoom: 1,
     showTooltip: 1,
     borderColor: 1,
-    borderWidth: 1,
+    borderWidth: 4,
     borderOpacity: 1,
     selectedRegions: 1,
     multiSelectRegion: 1
@@ -355,7 +355,7 @@ JQVMap.maps = {};
       enableZoom: true,
       showTooltip: true,
       borderColor: '#818181',
-      borderWidth: 1,
+      borderWidth: 4,
       borderOpacity: 0.75,
       selectedRegions: null,
       multiSelectRegion: false

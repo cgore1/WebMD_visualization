@@ -6,7 +6,7 @@ var width = $("#wordbubble").outerWidth(),
     height = $("#wordbubble").outerHeight(),
     padding = 1.5, // separation between same-color nodes
     clusterPadding = 6, // separation between different-color nodes
-    maxRadius = 30;
+    maxRadius = 25;
 
 if(!topic)
   return;
