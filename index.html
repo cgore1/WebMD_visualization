@@ -113,14 +113,16 @@
                     <div class="row top_tiles">
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
-                                <div class="count"><span id="topic">Drug</span> <h3>(Topic)</h3></div>
+                                <div class="count"><span id="topic">Drug</span>
+                                    <h3>(Topic)</h3></div>
 
                             </div>
                         </div>
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
                                 <div class="icon"><i class="fa fa fa-comments-o"></i></div>
-                                <div class="count"><span id="posts">2048</span> <h3>Post(s)</h3></div>
+                                <div class="count"><span id="posts">2048</span>
+                                    <h3>Post(s)</h3></div>
 
 
                             </div>
@@ -128,14 +130,16 @@
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
                                 <div class="icon"><i class="fa fa-users"></i></div>
-                                <div class="count"><span id="users">179</span> <h3>User(s)</h3></div>
+                                <div class="count"><span id="users">179</span>
+                                    <h3>User(s)</h3></div>
 
                             </div>
                         </div>
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="tile-stats">
                                 <div class="icon"><i class="fa fa-star"></i></div>
-                                <div class="count"><span id="experts">5</span> <h3>Expert(s)</h3></div>
+                                <div class="count"><span id="experts">5</span>
+                                    <h3>Expert(s)</h3></div>
 
                             </div>
                         </div>
@@ -145,567 +149,566 @@
 
                     <div class="row">
 
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div class="dashboard_graph x_panel">
-                            <div class="x_title">
-                                <h2>Topic Network</h2>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div id="viz">
-                            </div>
-                        </div>
-                    </div>
-
                         <div class="col-md-6 col-sm-12 col-xs-12">
-                          <div class="row">
-                            <div class="x_panel tile fixed_height_320">
+                            <div class="dashboard_graph x_panel">
                                 <div class="x_title">
-                                    <h2> Topic Info</h2>
+                                    <h2>Topic Network</h2>
                                     <div class="clearfix"></div>
                                 </div>
-                                <div class="x_content">
+                                <div id="viz">
+                                </div>
+                            </div>
+                        </div>
 
-                                    <div class="dashboard-widget-content">
-                                      <div class="sidebar-widget sidebar-widget" style="width:30%;">
-                                          <h4>% Questions Answered by Experts</h4>
-                                          <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
-                                          <div class="goal-wrapper">
-                                              <span id="gauge-text" class="gauge-value pull-left"></span>
-                                              <span id="goal-text" class="goal-value pull-right"></span>
-                                          </div>
-                                      </div>
-
-                                      <div class="left" id="canvas1-parent">
-                                          <canvas id="canvas1" height="250" width="400" style="margin: 15px auto"></canvas>
-                                      </div>
-                                      <div id="canvas1-legend" class="chart-legend"></div>
-                                      <div>
-                                      </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="row">
+                                <div class="x_panel tile fixed_height_320">
+                                    <div class="x_title">
+                                        <h2> Topic Info</h2>
+                                        <div class="clearfix"></div>
                                     </div>
-                                  </div>
+                                    <div class="x_content">
+
+                                        <div class="dashboard-widget-content">
+                                            <div class="sidebar-widget sidebar-widget" style="width:30%;">
+                                                <h4>% Questions Answered by Experts</h4>
+                                                <canvas width="150" height="80" id="foo" class="" style="width: 160px; height: 100px;"></canvas>
+                                                <div class="goal-wrapper">
+                                                    <span id="gauge-text" class="gauge-value pull-left"></span>
+                                                    <span id="goal-text" class="goal-value pull-right"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="left" id="canvas1-parent">
+                                                <canvas id="canvas1" height="250" width="400" style="margin: 15px auto"></canvas>
+                                            </div>
+                                            <div id="canvas1-legend" class="chart-legend"></div>
+                                            <div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
-                              <div class="col-md-6 col-sm-12 col-xs-12">
-                                <div class="x_panel tile fixed_height_320">
-                                    <div class="x_title">
-                                        <h2>Important Keywords (click for meaning)</h2>
-                                        <div class="clearfix"></div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="x_panel tile fixed_height_320">
+                                        <div class="x_title">
+                                            <h2>Important Keywords (click for meaning)</h2>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div id="wordbubble" style="width:100%; height:70%;">
+                                        </div>
+                                        <div id="wordmeaning" style="width:100%; height:5%;">
+                                        </div>
                                     </div>
-                                    <div id="wordbubble" style="width:100%; height:70%;">
+                                </div>
+                                <div class="col-md-6 col-sm-12 col-xs-12">
+                                    <div class="x_panel tile fixed_height_320 overflow_hidden">
+                                        <div class="x_title">
+                                            <h2>Which states provide answers?</h2>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div id="usa_map" style="height: 230px ! important; position: relative; overflow: hidden;"></div>
                                     </div>
-                                    <div id="wordmeaning" style="width:100%; height:5%;">
-                                    </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6 col-sm-12 col-xs-12">
-                                  <div class="x_panel tile fixed_height_320 overflow_hidden">
-                                      <div class="x_title">
-                                          <h2>Which states provide answers?</h2>
-                                          <div class="clearfix"></div>
-                                      </div>
-                                      <div id="usa_map" style="height: 230px ! important; position: relative; overflow: hidden;"></div>
-                                  </div>
-                                </div>
-                            </div>
-                          </div>
-
-                        </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-8 col-sm-12 col-xs-12">
-                          <div class="x_panel" style="height:850px">
-                              <div class="x_title">
-                                  <h2>Top Rated Questions</h2>
-                                  <div class="clearfix"></div>
-                              </div>
-                              <div id="wizard_verticle" class="form_wizard wizard_verticle">
-                                  <ul class="list-unstyled wizard_steps anchor" id="questions"></ul>
-                                  <div class="stepContainer" id="questions_list"></div>
-                              </div>
-                          </div>
-                      </div>
-                        <div class="col-md-4 col-sm-12 col-xs-12">
-                            <div class="dashboard_graph x_panel">
-                                <div class="x_title">
-                                    <h2>Monthly posts</h2>
-
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div id="monthChart"></div>
-                            </div>
-                            <div class="dashboard_graph x_panel">
-                                <div class="x_title">
-                                    <h2>Hourly posts</h2>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div id="hourChart">
                                 </div>
                             </div>
                         </div>
 
                     </div>
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-xs-12">
-                            <div class="x_panel" style="height:550px">
-                              <div class="x_title">
-                                  <h2>Member Network</h2>
-                                  <div class="clearfix"></div>
-                              </div>
-                              <div id="member_viz"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="x_panel" style="height:850px">
+                            <div class="x_title">
+                                <h2>Top Rated Questions</h2>
+                                <div class="clearfix"></div>
                             </div>
+                            <div id="wizard_verticle" class="form_wizard wizard_verticle">
+                                <ul class="list-unstyled wizard_steps anchor" id="questions"></ul>
+                                <div class="stepContainer" id="questions_list"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12">
+                        <div class="dashboard_graph x_panel">
+                            <div class="x_title">
+                                <h2>Monthly posts</h2>
+
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="monthChart"></div>
+                        </div>
+                        <div class="dashboard_graph x_panel">
+                            <div class="x_title">
+                                <h2>Hourly posts</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="hourChart">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="x_panel" style="height:550px">
+                            <div class="x_title">
+                                <h2>Member Network</h2>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div id="member_viz"></div>
                         </div>
                     </div>
                 </div>
-                <!-- /page content -->
-
             </div>
+            <!-- /page content -->
+
         </div>
+    </div>
 
 
 
-        <!-- Flot -->
-        <script>
-            $(document).ready(function(e) {
-                var data1 = [
-                    [gd(2012, 1, 1), 17],
-                    [gd(2012, 1, 2), 74],
-                    [gd(2012, 1, 3), 6],
-                    [gd(2012, 1, 4), 39],
-                    [gd(2012, 1, 5), 20],
-                    [gd(2012, 1, 6), 85],
-                    [gd(2012, 1, 7), 7]
-                ];
+    <!-- Flot -->
+    <script>
+        $(document).ready(function(e) {
+            var data1 = [
+                [gd(2012, 1, 1), 17],
+                [gd(2012, 1, 2), 74],
+                [gd(2012, 1, 3), 6],
+                [gd(2012, 1, 4), 39],
+                [gd(2012, 1, 5), 20],
+                [gd(2012, 1, 6), 85],
+                [gd(2012, 1, 7), 7]
+            ];
 
-                var data2 = [
-                    [gd(2012, 1, 1), 82],
-                    [gd(2012, 1, 2), 23],
-                    [gd(2012, 1, 3), 66],
-                    [gd(2012, 1, 4), 9],
-                    [gd(2012, 1, 5), 119],
-                    [gd(2012, 1, 6), 6],
-                    [gd(2012, 1, 7), 9]
-                ];
-                $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
-                    data1, data2
-                ], {
-                    series: {
-                        lines: {
-                            show: false,
-                            fill: true
-                        },
-                        splines: {
-                            show: true,
-                            tension: 0.4,
-                            lineWidth: 1,
-                            fill: 0.4
-                        },
-                        points: {
-                            radius: 0,
-                            show: true
-                        },
-                        shadowSize: 2
+            var data2 = [
+                [gd(2012, 1, 1), 82],
+                [gd(2012, 1, 2), 23],
+                [gd(2012, 1, 3), 66],
+                [gd(2012, 1, 4), 9],
+                [gd(2012, 1, 5), 119],
+                [gd(2012, 1, 6), 6],
+                [gd(2012, 1, 7), 9]
+            ];
+            $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
+                data1, data2
+            ], {
+                series: {
+                    lines: {
+                        show: false,
+                        fill: true
                     },
-                    grid: {
-                        verticalLines: true,
-                        hoverable: true,
-                        clickable: true,
-                        tickColor: "#d5d5d5",
-                        borderWidth: 1,
-                        color: '#fff'
+                    splines: {
+                        show: true,
+                        tension: 0.4,
+                        lineWidth: 1,
+                        fill: 0.4
                     },
-                    colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
-                    xaxis: {
-                        tickColor: "rgba(51, 51, 51, 0.06)",
-                        mode: "time",
-                        tickSize: [1, "day"],
-                        //tickLength: 10,
-                        axisLabel: "Date",
-                        axisLabelUseCanvas: true,
-                        axisLabelFontSizePixels: 12,
-                        axisLabelFontFamily: 'Verdana, Arial',
-                        axisLabelPadding: 10
+                    points: {
+                        radius: 0,
+                        show: true
                     },
-                    yaxis: {
-                        ticks: 8,
-                        tickColor: "rgba(51, 51, 51, 0.06)",
-                    },
-                    tooltip: false
-                });
-
-                function gd(year, month, day) {
-                    return new Date(year, month - 1, day).getTime();
-                }
+                    shadowSize: 2
+                },
+                grid: {
+                    verticalLines: true,
+                    hoverable: true,
+                    clickable: true,
+                    tickColor: "#d5d5d5",
+                    borderWidth: 1,
+                    color: '#fff'
+                },
+                colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
+                xaxis: {
+                    tickColor: "rgba(51, 51, 51, 0.06)",
+                    mode: "time",
+                    tickSize: [1, "day"],
+                    //tickLength: 10,
+                    axisLabel: "Date",
+                    axisLabelUseCanvas: true,
+                    axisLabelFontSizePixels: 12,
+                    axisLabelFontFamily: 'Verdana, Arial',
+                    axisLabelPadding: 10
+                },
+                yaxis: {
+                    ticks: 8,
+                    tickColor: "rgba(51, 51, 51, 0.06)",
+                },
+                tooltip: false
             });
-        </script>
-        <!-- /Flot -->
 
-        <!-- JQVMap -->
-        <script>
-        </script>
-        <!-- /JQVMap -->
-
-        <!-- Skycons -->
-        <script>
-            $(document).ready(function() {
-                var icons = new Skycons({
-                        "color": "#73879C"
-                    }),
-                    list = [
-                        "clear-day", "clear-night", "partly-cloudy-day",
-                        "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
-                        "fog"
-                    ],
-                    i;
-
-                for (i = list.length; i--;)
-                    icons.set(list[i], list[i]);
-
-                icons.play();
-            });
-        </script>
-        <!-- /Skycons -->
-
-
-        <!-- bootstrap-daterangepicker -->
-        <script>
-            $(document).ready(function() {
-
-                var cb = function(start, end, label) {
-                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-                };
-
-                var optionSet1 = {
-                    startDate: moment().subtract(29, 'days'),
-                    endDate: moment(),
-                    minDate: '01/01/2012',
-                    maxDate: '12/31/2015',
-                    dateLimit: {
-                        days: 60
-                    },
-                    showDropdowns: true,
-                    showWeekNumbers: true,
-                    timePicker: false,
-                    timePickerIncrement: 1,
-                    timePicker12Hour: true,
-                    ranges: {
-                        'Today': [moment(), moment()],
-                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                        'This Month': [moment().startOf('month'), moment().endOf('month')],
-                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                    },
-                    opens: 'left',
-                    buttonClasses: ['btn btn-default'],
-                    applyClass: 'btn-small btn-primary',
-                    cancelClass: 'btn-small',
-                    format: 'MM/DD/YYYY',
-                    separator: ' to ',
-                    locale: {
-                        applyLabel: 'Submit',
-                        cancelLabel: 'Clear',
-                        fromLabel: 'From',
-                        toLabel: 'To',
-                        customRangeLabel: 'Custom',
-                        daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                        monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                        firstDay: 1
-                    }
-                };
-                $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-                $('#reportrange').daterangepicker(optionSet1, cb);
-                $('#reportrange').on('show.daterangepicker', function() {
-                    console.log("show event fired");
-                });
-                $('#reportrange').on('hide.daterangepicker', function() {
-                    console.log("hide event fired");
-                });
-                $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-                    console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-                });
-                $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
-                    console.log("cancel event fired");
-                });
-                $('#options1').click(function() {
-                    $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
-                });
-                $('#options2').click(function() {
-                    $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
-                });
-                $('#destroy').click(function() {
-                    $('#reportrange').data('daterangepicker').remove();
-                });
-            });
-        </script>
-        <!-- /bootstrap-daterangepicker -->
-
-        <!-- gauge.js -->
-        <script>
-
-            function setGauge(topic) {
-              var opts = {
-                  lines: 12,
-                  angle: 0,
-                  lineWidth: 0.4,
-                  pointer: {
-                      length: 0.75,
-                      strokeWidth: 0.042,
-                      color: '#1D212A'
-                  },
-                  limitMax: 'false',
-                  colorStart: '#1ABC9C',
-                  colorStop: '#1ABC9C',
-                  strokeColor: '#F0F3F3',
-                  generateGradient: true
-              };
-  	          var topic_stats = topic_question_stats[topic];
-              var target = document.getElementById('foo'),
-              gauge = new Gauge(target).setOptions(opts);
-              gauge.maxValue = topic_stats["total"];
-              gauge.animationSpeed = 32;
-
-              d3.select("#posts").html(topic_stats["total"]);
-              d3.select("#goal-text").html(topic_stats["total"]);
-
-              gauge.set(topic_stats["answered"]);
-              gauge.setTextField(document.getElementById("gauge-text"));
-              gauge.render();
+            function gd(year, month, day) {
+                return new Date(year, month - 1, day).getTime();
             }
+        });
+    </script>
+    <!-- /Flot -->
 
-            function setTopic(topic) {
-              d3.select("#topic").html(topic);
-            }
+    <!-- JQVMap -->
+    <script>
+    </script>
+    <!-- /JQVMap -->
 
-            function setStates(state) {
-                d3.select('#usa_map').html("");
-                $('#usa_map').vectorMap({
-                    map: 'usa_en',
-                    backgroundColor: null,
-                    color: '#ffffff',
-                    hoverOpacity: 0.7,
-                    selectedColor: '#666666',
-                    enableZoom: true,
-                    showTooltip: true,
-                    values: topic_states[state],
-                    scaleColors: ['#26b99a', '#556B2F'],
-                    normalizeFunction: 'polynomial'
-                });
-            }
+    <!-- Skycons -->
+    <script>
+        $(document).ready(function() {
+            var icons = new Skycons({
+                    "color": "#73879C"
+                }),
+                list = [
+                    "clear-day", "clear-night", "partly-cloudy-day",
+                    "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                    "fog"
+                ],
+                i;
 
-            function setQuestionsForTopic(topic) {
-                var panel = d3.select('#questions');
-                panel.attr("style", "display: none")
-                var questions_list = d3.select("#questions_list");
-                panel.html("");
-                questions_list.html("");
-                d3.select(".actionBar").remove();
+            for (i = list.length; i--;)
+                icons.set(list[i], list[i]);
 
-                var question_count = 1;
-
-                var question_number = "step-" + question_count + "" + question_count;
-            		var question_element = questions_list.append("div")
-            		    .attr("id", question_number)
-            		    .attr("class", "content")
-            		    .attr("style", display);
-            		panel.append("li")
-            		    .append("a")
-            		    .attr("href", "#" + question_number)
-            		    .append("span")
-            		    .attr("class", "step_no")
-            		    .html(question_count);
-
-                for (var question in answers[topic]) {
-
-                    var select_class = "disabled";
-                    var display = "display:none";
-                    if (question_count == 1) {
-                        select_class = "selected";
-                        display = "display:block";
-                    }
-
-		                question_element.append("div")
-                                      .attr("class", "clearfix")
-                                    .append("h2")
-                                      .attr("class", "stepTitle")
-                                      .html(question);
-                    var i = 0;
-                    for (var ans in answers[topic][question]) {
-                        question_element.append("p")
-                            .html("<b>Answer " + (++i) + "</b>: " + answers[topic][question][ans]);
-                    }
-                    if (question_count % 5 == 0) {
-                        //break;
-                    			var step_number = question_count / 5 + 1;
-                    			question_number = "step-" + step_number + "" + step_number;
-                    			question_element = questions_list.append("div")
-                    			    .attr("id", question_number)
-                    			    .attr("class", "content")
-                    			    .attr("style", display);
-                    			panel.append("li")
-                    			    .append("a")
-                    			    .attr("href", "#" + question_number)
-                    			    .append("span")
-                    			    .attr("class", "step_no")
-                    			    .html(step_number);
+            icons.play();
+        });
+    </script>
+    <!-- /Skycons -->
 
 
-                    }
-                    question_count = question_count + 1;
-                }
+    <!-- bootstrap-daterangepicker -->
+    <script>
+        $(document).ready(function() {
 
-            }
-            //	var topic_question_stats = [];
-
-            var default_topic = "Drug";
-            setQuestionsForTopic(default_topic);
-
-            loadTimeline(default_topic);
-            showWordBubble(default_topic);
-            setStates(default_topic);
-            setTopic(default_topic);
-            setGauge(default_topic);
-            createNetwork(default_topic);
-        </script>
-        <!-- /gauge.js -->
-
-        <!-- Doughnut Chart -->
-        <script>
-            var member_helpful_chart;
-            var options = {
-                legend: true,
-                responsive: false,
-                tooltip: true
+            var cb = function(start, end, label) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
             };
 
-            function member_helper_chart_draw(topic) {
-                d3.select("#canvas1-parent").html("");
-                d3.select("#canvas1-legend").html("");
-                d3.select("#canvas1-parent").append("canvas")
-                    .attr("id", "canvas1")
-                    .attr("height", "200")
-                    .attr("width", "200")
-                    .attr("style", "margin: 15px 10px 10px 0");
+            var optionSet1 = {
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment(),
+                minDate: '01/01/2012',
+                maxDate: '12/31/2015',
+                dateLimit: {
+                    days: 60
+                },
+                showDropdowns: true,
+                showWeekNumbers: true,
+                timePicker: false,
+                timePickerIncrement: 1,
+                timePicker12Hour: true,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                opens: 'left',
+                buttonClasses: ['btn btn-default'],
+                applyClass: 'btn-small btn-primary',
+                cancelClass: 'btn-small',
+                format: 'MM/DD/YYYY',
+                separator: ' to ',
+                locale: {
+                    applyLabel: 'Submit',
+                    cancelLabel: 'Clear',
+                    fromLabel: 'From',
+                    toLabel: 'To',
+                    customRangeLabel: 'Custom',
+                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    firstDay: 1
+                }
+            };
+            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+            $('#reportrange').daterangepicker(optionSet1, cb);
+            $('#reportrange').on('show.daterangepicker', function() {
+                console.log("show event fired");
+            });
+            $('#reportrange').on('hide.daterangepicker', function() {
+                console.log("hide event fired");
+            });
+            $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+                console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+            });
+            $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
+                console.log("cancel event fired");
+            });
+            $('#options1').click(function() {
+                $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+            });
+            $('#options2').click(function() {
+                $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+            });
+            $('#destroy').click(function() {
+                $('#reportrange').data('daterangepicker').remove();
+            });
+        });
+    </script>
+    <!-- /bootstrap-daterangepicker -->
 
-                topic_members = helpers[topic];
-		            number_of_experts = Math.ceil(topic_members["members"].length / 2) + 1;
-                number_of_members = topic_members["members"].length+10;
+    <!-- gauge.js -->
+    <script>
+        function setGauge(topic) {
+            var opts = {
+                lines: 12,
+                angle: 0,
+                lineWidth: 0.4,
+                pointer: {
+                    length: 0.75,
+                    strokeWidth: 0.042,
+                    color: '#1D212A'
+                },
+                limitMax: 'false',
+                colorStart: '#1ABC9C',
+                colorStop: '#1ABC9C',
+                strokeColor: '#F0F3F3',
+                generateGradient: true
+            };
+            var topic_stats = topic_question_stats[topic];
+            var target = document.getElementById('foo'),
+                gauge = new Gauge(target).setOptions(opts);
+            gauge.maxValue = topic_stats["total"];
+            gauge.animationSpeed = 32;
 
-                d3.select("#users").html(number_of_members);
-                d3.select("#experts").html(number_of_experts);
+            d3.select("#posts").html(topic_stats["total"]);
+            d3.select("#goal-text").html(topic_stats["total"]);
 
-                member_helpful_chart = new Chart(document.getElementById("canvas1"), {
-                    type: 'doughnut',
-                    tooltipFillColor: "rgba(51, 51, 51, 0.55)",
-                    data: {
-                        labels: topic_members["members"],
-                        datasets: [{
-                            data: topic_members["memberhelpfulvotes"],
-                            backgroundColor: [
-                                "#BDC3C7",
-                                "#9B59B6",
-                                "#E74C3C",
-                                "#26B99A",
-                                "#3498DB",
-                                "#0DC377",
-                                "#FB5936",
-                                "#474CDC",
-                                "#C6B91A",
-                                "#B4982B"
-                            ],
-                            hoverBackgroundColor: [
-                                "#CFD4D8",
-                                "#B370CF",
-                                "#E95E4F",
-                                "#36CAAB",
-                                "#49A9EA"
-                            ]
-                        }]
-                    },
-                    options: options
-                });
-                document.getElementById('canvas1-legend').innerHTML = member_helpful_chart.generateLegend();
+            gauge.set(topic_stats["answered"]);
+            gauge.setTextField(document.getElementById("gauge-text"));
+            gauge.render();
+        }
 
+        function setTopic(topic) {
+            d3.select("#topic").html(topic);
+        }
+
+        function setStates(state) {
+            d3.select('#usa_map').html("");
+            $('#usa_map').vectorMap({
+                map: 'usa_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#666666',
+                enableZoom: true,
+                showTooltip: true,
+                values: topic_states[state],
+                scaleColors: ['#26b99a', '#556B2F'],
+                normalizeFunction: 'polynomial'
+            });
+        }
+
+        function setQuestionsForTopic(topic) {
+            var panel = d3.select('#questions');
+            panel.attr("style", "display: none")
+            var questions_list = d3.select("#questions_list");
+            panel.html("");
+            questions_list.html("");
+            d3.select(".actionBar").remove();
+
+            var question_count = 1;
+
+            var question_number = "step-" + question_count + "" + question_count;
+            var question_element = questions_list.append("div")
+                .attr("id", question_number)
+                .attr("class", "content")
+                .attr("style", display);
+            panel.append("li")
+                .append("a")
+                .attr("href", "#" + question_number)
+                .append("span")
+                .attr("class", "step_no")
+                .html(question_count);
+
+            for (var question in answers[topic]) {
+
+                var select_class = "disabled";
+                var display = "display:none";
+                if (question_count == 1) {
+                    select_class = "selected";
+                    display = "display:block";
+                }
+
+                question_element.append("div")
+                    .attr("class", "clearfix")
+                    .append("h2")
+                    .attr("class", "stepTitle")
+                    .html(question);
+                var i = 0;
+                for (var ans in answers[topic][question]) {
+                    question_element.append("p")
+                        .html("<b>Answer " + (++i) + "</b>: " + answers[topic][question][ans]);
+                }
+                if (question_count % 5 == 0) {
+                    //break;
+                    var step_number = question_count / 5 + 1;
+                    question_number = "step-" + step_number + "" + step_number;
+                    question_element = questions_list.append("div")
+                        .attr("id", question_number)
+                        .attr("class", "content")
+                        .attr("style", display);
+                    panel.append("li")
+                        .append("a")
+                        .attr("href", "#" + question_number)
+                        .append("span")
+                        .attr("class", "step_no")
+                        .html(step_number);
+
+
+                }
+                question_count = question_count + 1;
             }
-            $(document).ready(function() {
-                member_helper_chart_draw(default_topic);
-            });
-        </script>
-        <!-- /Doughnut Chart -->
 
-        <!-- Topic Graph -->
-        <script>
-            var counter = 1;
+        }
+        //	var topic_question_stats = [];
 
-            var visualization = d3plus.viz()
-                .container("#viz")
-                .type("rings")
-                .font({
-                    "weight": 500,
-                    "size": 14
-                  })
-                .edges({
-                    "size": "strength",
-                    "value": connections
-                })
-                .focus({
-                        "value": default_topic,
-                        "tooltip": false
-                    },
-                    function(d) {
+        var default_topic = "Drug";
+        setQuestionsForTopic(default_topic);
 
-                        setQuestionsForTopic(d);
-                        showWordBubble(d);
-                        setTopic(d[0]);
-			                  setGauge(d[0]);
+        loadTimeline(default_topic);
+        showWordBubble(default_topic);
+        setStates(default_topic);
+        setTopic(default_topic);
+        setGauge(default_topic);
+        createNetwork(default_topic);
+    </script>
+    <!-- /gauge.js -->
 
-                        swreset("#wizard_verticle");
-                        $('.buttonNext').addClass('btn btn-success');
-                        $('.buttonPrevious').addClass('btn btn-primary');
-                        // Time line update
-                        member_helper_chart_draw(d);
-                        loadTimeline(d);
-                        setStates(d[0]);
+    <!-- Doughnut Chart -->
+    <script>
+        var member_helpful_chart;
+        var options = {
+            legend: true,
+            responsive: false,
+            tooltip: true
+        };
 
-                        createNetwork(d[0]);
-                    }
+        function member_helper_chart_draw(topic) {
+            d3.select("#canvas1-parent").html("");
+            d3.select("#canvas1-legend").html("");
+            d3.select("#canvas1-parent").append("canvas")
+                .attr("id", "canvas1")
+                .attr("height", "200")
+                .attr("width", "200")
+                .attr("style", "margin: 15px 10px 10px 0");
 
+            topic_members = helpers[topic];
+            number_of_experts = Math.ceil(topic_members["members"].length / 2) + 1;
+            number_of_members = topic_members["members"].length + 10;
 
-                )
-                .ui({
-                    "position": "top",
-                    "align": "center",
-                    "value": [{
-                        "method": "focus",
-                        "type": "drop",
-                        "label": "Disease",
-                        "value": filterTopics
+            d3.select("#users").html(number_of_members);
+            d3.select("#experts").html(number_of_experts);
+
+            member_helpful_chart = new Chart(document.getElementById("canvas1"), {
+                type: 'doughnut',
+                tooltipFillColor: "rgba(51, 51, 51, 0.55)",
+                data: {
+                    labels: topic_members["members"],
+                    datasets: [{
+                        data: topic_members["memberhelpfulvotes"],
+                        backgroundColor: [
+                            "#BDC3C7",
+                            "#9B59B6",
+                            "#E74C3C",
+                            "#26B99A",
+                            "#3498DB",
+                            "#0DC377",
+                            "#FB5936",
+                            "#474CDC",
+                            "#C6B91A",
+                            "#B4982B"
+                        ],
+                        hoverBackgroundColor: [
+                            "#CFD4D8",
+                            "#B370CF",
+                            "#E95E4F",
+                            "#36CAAB",
+                            "#49A9EA"
+                        ]
                     }]
-                })
-                .height(585)
-                .width({
-                    "small": 640
-                })
-                .color({
-                  "focus": "#26b99a",
-                  "scale": "category20c"
-                })
-                .draw();
-        </script>
-        <!-- /Topic Graph -->
-
-        <!-- jQuery Smart Wizard -->
-        <script>
-            $(document).ready(function() {
-                $('#wizard_verticle').smartWizard({
-                    transitionEffect: 'slide'
-                });
-
-                $('.buttonNext').addClass('btn btn-success');
-                $('.buttonPrevious').addClass('btn btn-primary');
+                },
+                options: options
             });
-        </script>
-        <!-- /jQuery Smart Wizard -->
+            document.getElementById('canvas1-legend').innerHTML = member_helpful_chart.generateLegend();
+
+        }
+        $(document).ready(function() {
+            member_helper_chart_draw(default_topic);
+        });
+    </script>
+    <!-- /Doughnut Chart -->
+
+    <!-- Topic Graph -->
+    <script>
+        var counter = 1;
+
+        var visualization = d3plus.viz()
+            .container("#viz")
+            .type("rings")
+            .font({
+                "weight": 500,
+                "size": 14
+            })
+            .edges({
+                "size": "strength",
+                "value": connections
+            })
+            .focus({
+                    "value": default_topic,
+                    "tooltip": false
+                },
+                function(d) {
+
+                    setQuestionsForTopic(d);
+                    showWordBubble(d);
+                    setTopic(d[0]);
+                    setGauge(d[0]);
+
+                    swreset("#wizard_verticle");
+                    $('.buttonNext').addClass('btn btn-success');
+                    $('.buttonPrevious').addClass('btn btn-primary');
+                    // Time line update
+                    member_helper_chart_draw(d);
+                    loadTimeline(d);
+                    setStates(d[0]);
+
+                    createNetwork(d[0]);
+                }
+
+
+            )
+            .ui({
+                "position": "top",
+                "align": "center",
+                "value": [{
+                    "method": "focus",
+                    "type": "drop",
+                    "label": "Disease",
+                    "value": filterTopics
+                }]
+            })
+            .height(585)
+            .width({
+                "small": 640
+            })
+            .color({
+                "focus": "#26b99a",
+                "scale": "category20c"
+            })
+            .draw();
+    </script>
+    <!-- /Topic Graph -->
+
+    <!-- jQuery Smart Wizard -->
+    <script>
+        $(document).ready(function() {
+            $('#wizard_verticle').smartWizard({
+                transitionEffect: 'slide'
+            });
+
+            $('.buttonNext').addClass('btn btn-success');
+            $('.buttonPrevious').addClass('btn btn-primary');
+        });
+    </script>
+    <!-- /jQuery Smart Wizard -->
 </body>
 
 </html>
