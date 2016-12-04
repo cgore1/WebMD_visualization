@@ -8,6 +8,7 @@ var width = $("#wordbubble").outerWidth(),
     clusterPadding = 6, // separation between different-color nodes
     maxRadius = 25;
 
+
 if(!topic)
   return;
 var data = tfidfD[topic][0];
@@ -66,8 +67,10 @@ node.append("circle")
     return "#26b99a";
 }).attr("r", function(d){return d.radius}).on("click",
         function(d) {
-            d3.select("#wordmeaning").html( '"' + d.name + '" : ' + data[d.name][0]);
-        });
+            d3.select("#wordmeaning").html( '<b>' + d.name.charAt(0).toUpperCase() + d.name.slice(1) + '</b> : ' + data[d.name][0]);
+        }
+
+		);
 //add text to the group
 node.append("text")
     .text(function (d) {
@@ -79,7 +82,7 @@ node.append("text")
     return d.name
 }).on("click",
         function(d) {
-            d3.select("#wordmeaning").html( '"' + d.name + '" : ' + data[d.name][0]);
+            d3.select("#wordmeaning").html( '<b>' + d.name.charAt(0).toUpperCase() + d.name.slice(1) + '</b> : ' + data[d.name][0]);
         });
 
 
