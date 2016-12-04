@@ -135,18 +135,27 @@ function myGraph() {
             });
 
         node.exit().remove();
-
+        var root_node_index = 4;
         force.on("tick", function() {
 
             node.attr("transform", function(d) {
+                if (d.index == root_node_index) {
+                    return "translate(" + w / 2 + "," + h / 2 + ")";
+                }
                 return "translate(" + Math.max(r, Math.min(w - r, d.x)) + "," + Math.max(r, Math.min(h - r, d.y)) + ")";
             });
 
             link.attr("x1", function(d) {
-                    return Math.max(r, Math.min(w - r, d.source.x));
+                    if (d.source.index == root_node_index) {
+                        return w / 2;
+                    }
+                    return Math.max(r, Math.min(w - r, d.source.x + 10));
                 })
                 .attr("y1", function(d) {
-                    return Math.max(r, Math.min(h - r, d.source.y));
+                    if (d.source.index == 4) {
+                        return h / 2;
+                    }
+                    return Math.max(r, Math.min(h - r, d.source.y+10));
                 })
                 .attr("x2", function(d) {
                     return Math.max(r, Math.min(w - r, d.target.x));
@@ -154,12 +163,15 @@ function myGraph() {
                 .attr("y2", function(d) {
                     return Math.max(r, Math.min(h - r, d.target.y));
                 });
+
         });
 
         // Restart the force layout.
         force
-            .gravity(.01)
-            .charge(-8000)
+            .gravity(0.01)
+            .charge(function(d) {
+                return -50 * d.r;
+            })
             .friction(0)
             .linkDistance(function(d) {
                 return d.value + 20
