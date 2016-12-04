@@ -46,8 +46,9 @@
     <script src="js/moment.min.js"></script>
     <script src="js/daterangepicker.js"></script>
     <script src="js/jquery.smartWizard.js"></script>
-    <!-- Custom Theme Scripts -->
+    <!-- Custom Scripts -->
     <script src="js/custom.min.js"></script>
+    <script src="js/members.js"></script>
 
     <!-- data -->
     <script src="data/topic_questions.js"></script>
@@ -59,6 +60,8 @@
     <script src="data/tfidfData.js"></script>
     <script src="data/topic_members.js"></script>
     <script src="data/topic_states.js"></script>
+    <script src="data/topics_members_links.js"></script>
+
     <!-- JQVMap -->
     <script src="js/jquery.vmap.js"></script>
     <script src="js/jquery.vmap.world.js"></script>
@@ -90,6 +93,7 @@
     <!-- Custom Theme Style -->
     <link href="css/custom.min.css" rel="stylesheet">
     <link href="css/index.css" rel="stylesheet">
+    <link href="css/members.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -102,17 +106,6 @@
                         <div class="col-md-12 col-sm-12 col-xs-12" style="text-align:center">
                             <h1>Discovering Topic Relations and Insights from Medical Forums </h1>
                         </div>
-
-                    <!--    <div class="title_right">
-                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Find meaning for a term">
-                                    <span class="input-group-btn">
-                                      <button class="btn btn-default" type="button">Go!</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
 
                     <div class="clearfix"></div>
@@ -258,20 +251,13 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-12">
-                            <div class="row">
-                                <div class="col-md-12 col-sm-12 col-xs-12" id="usergraph">
-                                    <!-- Empty Container -->
-                                </div>
-
-                            </div>
-                            <div class="row">
-                                <!-- start of weather widget -->
-                                <div class="col-md-12 col-sm-12 col-xs-12">
-
-                                    <!-- -->
-                                </div>
-                                <!-- end of weather widget -->
+                        <div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="x_panel" style="height:550px">
+                              <div class="x_title">
+                                  <h2>Member Network</h2>
+                                  <div class="clearfix"></div>
+                              </div>
+                              <div id="member_viz"></div>
                             </div>
                         </div>
                     </div>
@@ -584,6 +570,7 @@
             setStates(default_topic);
             setTopic(default_topic);
             setGauge(default_topic);
+            createNetwork(default_topic);
         </script>
         <!-- /gauge.js -->
 
@@ -684,6 +671,8 @@
                         member_helper_chart_draw(d);
                         loadTimeline(d);
                         setStates(d[0]);
+
+                        createNetwork(d[0]);
                     }
 
 
