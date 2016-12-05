@@ -53,7 +53,24 @@ function loadTimeline(topic)
         {
            var r = {};
            // r.date = parseDate(m)
-           r.period = i;
+		   var k = parseInt(i) - 12;
+		   var suffix = '';
+		   
+		   if(k >= 0)
+		   {   
+				suffix = ' pm';
+				k = Math.abs(k);
+				
+		   }
+		   else
+		   {
+			   suffix = ' am';
+			   k = 12 + k;
+		   }	
+           
+		   if(k == 0)
+			   k = 12;
+		   r.period = Math.abs(k) + suffix;
            r.value = hourData[topic][i];
            if(r.value == undefined)
            {
