@@ -68,8 +68,11 @@ function loadTimeline(topic)
 			   k = 12 + k;
 		   }	
            
+		   if(k == 12)
+			   suffix = 'am';
 		   if(k == 0)
 			   k = 12;
+		   
 		   r.period = Math.abs(k) + suffix;
            r.value = hourData[topic][i];
            if(r.value == undefined)
