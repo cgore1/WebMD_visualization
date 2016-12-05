@@ -61,6 +61,7 @@
     <script src="data/topic_members.js"></script>
     <script src="data/topic_states.js"></script>
     <script src="data/topics_members_links.js"></script>
+    <script src="data/connectionsMembers.js"></script>
 
     <!-- JQVMap -->
     <script src="js/jquery.vmap.js"></script>
@@ -252,7 +253,7 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-md-8 col-sm-8 col-xs-12">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="x_panel" style="height:550px">
                             <div class="x_title">
                                 <h2>Member Network</h2>
@@ -570,7 +571,6 @@
         setStates(default_topic);
         setTopic(default_topic);
         setGauge(default_topic);
-        createNetwork(default_topic);
     </script>
     <!-- /gauge.js -->
 
@@ -610,7 +610,7 @@
                             "#26b99a",
                             "#0b372e",
                             "#E74C3C",
-                            "#26B99A",
+                            "#14B99A",
                             "#3498DB",
                             "#0DC377",
                             "#FB5936",
@@ -637,6 +637,38 @@
         });
     </script>
     <!-- /Doughnut Chart -->
+
+    <!-- Member Graph -->
+    <script>
+        var counter = 1;
+        function member_visualization(topic) {
+          console.log("member");
+          d3.select("#member_viz").html("");
+          var member_viz = d3plus.viz()
+              .container("#member_viz")
+              .type("rings")
+              .font({
+                  "weight": 500,
+                  "size": 14
+              })
+              .edges({
+                  "size": "strength",
+                  "value": connections_members[topic]
+              })
+              .focus({
+                      "value": "Dan Brennan",
+                      "tooltip": false
+                  }
+              )
+              .height(585)
+              .width({
+                  "small": 640
+              })
+              .draw();
+          }
+        member_visualization(default_topic);
+    </script>
+    <!-- /Member Graph -->
 
     <!-- Topic Graph -->
     <script>
@@ -672,7 +704,8 @@
                     loadTimeline(d);
                     setStates(d[0]);
 
-                    createNetwork(d[0]);
+                    member_visualization(d[0]);
+                  //  createNetwork(d[0]);
                 }
 
 

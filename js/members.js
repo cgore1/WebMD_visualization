@@ -139,23 +139,14 @@ function myGraph() {
         force.on("tick", function() {
 
             node.attr("transform", function(d) {
-                if (d.index == root_node_index) {
-                    return "translate(" + w / 2 + "," + h / 2 + ")";
-                }
                 return "translate(" + Math.max(r, Math.min(w - r, d.x)) + "," + Math.max(r, Math.min(h - r, d.y)) + ")";
             });
 
             link.attr("x1", function(d) {
-                    if (d.source.index == root_node_index) {
-                        return w / 2;
-                    }
-                    return Math.max(r, Math.min(w - r, d.source.x + 10));
+                    return Math.max(r, Math.min(w - r, d.source.x));
                 })
                 .attr("y1", function(d) {
-                    if (d.source.index == 4) {
-                        return h / 2;
-                    }
-                    return Math.max(r, Math.min(h - r, d.source.y+10));
+                    return Math.max(r, Math.min(h - r, d.source.y));
                 })
                 .attr("x2", function(d) {
                     return Math.max(r, Math.min(w - r, d.target.x));
@@ -174,7 +165,7 @@ function myGraph() {
             })
             .friction(0)
             .linkDistance(function(d) {
-                return d.value + 20
+                return d.value * 25
             })
             .size([w, h])
             .start();
@@ -191,7 +182,7 @@ function createNetwork(topic) {
 
     var nodeHash = {};
 
-    var data = member_graph_data["Snack"];
+    var data = member_graph_data[topic];
 
     for (var i = 0; i < data["members"].length; i++) {
         graph.addNode(data["members"][i]);
